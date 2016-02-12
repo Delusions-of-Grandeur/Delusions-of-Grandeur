@@ -2857,15 +2857,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb26b0cdd36794412b8c3207787ebdc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  structureIndex: 0
   throughObject: {fileID: 1612470636}
   placementPlanesRoot: {fileID: 1969547899}
   hoverMat: {fileID: 2100000, guid: ff58b46c6810f43e69ae5d11a20573b3, type: 2}
   placementLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  onColor: {r: 0, g: 0, b: 0, a: 0}
-  offColor: {r: 0, g: 0, b: 0, a: 0}
-  allStructures: []
+    m_Bits: 256
+  onColor: {r: 0.97794116, g: 0.9563689, b: 0.9563689, a: 0}
+  offColor: {r: 0.43382353, g: 0.43382353, b: 0.43382353, a: 0}
+  allStructures:
+  - {fileID: 150498, guid: d432139addc654370a0eb4d5e0bf8249, type: 2}
+  - {fileID: 128096, guid: eac4a7eed00664e1ba823309eb5d2253, type: 2}
 --- !u!1001 &1726717611
 Prefab:
   m_ObjectHideFlags: 0
