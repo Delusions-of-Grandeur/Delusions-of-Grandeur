@@ -6,10 +6,11 @@ var throughObject : Transform;
 
 //Placement Plane items
 var placementPlanesRoot : Transform;
-var hoverMat : Material;
+private var hoverMat : Material;
 var placementLayerMask : LayerMask;
 private var originalMat : Material;
 private var lastHitObj : GameObject;
+var allMats : Material[];
 //
 
 //build selection items
@@ -22,6 +23,7 @@ function Start()
 {
 	//reset the structure index, refresh the GUI
 	structureIndex = 0;
+	hoverMat = allMats[0];
 }
 
 
@@ -36,10 +38,13 @@ function Update ()
 
 	if(Input.GetKeyDown(KeyCode.B)){ // build
 		functionIndex = 0;
+		hoverMat = allMats[0];
 	} else if(Input.GetKeyDown(KeyCode.N)){ // Sell
 		functionIndex = 1;
+		hoverMat = allMats[1];
 	} else if(Input.GetKeyDown(KeyCode.U)){ // Upgrade
 		functionIndex = 2;
+		hoverMat = allMats[2];
 	}
 
 	if(true) //if the build panel is open...
