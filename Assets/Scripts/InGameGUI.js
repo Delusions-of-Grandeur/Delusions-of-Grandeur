@@ -1,6 +1,7 @@
 #pragma strict
 
 var structureIndex : int;
+var functionIndex : int;
 var throughObject : Transform;
 
 //Placement Plane items
@@ -30,7 +31,15 @@ function Update ()
 	if(Input.GetKeyDown(KeyCode.Alpha1)){
 		structureIndex = 0;
 	} else if(Input.GetKeyDown(KeyCode.Alpha2)){
-		structureIndex = 1;
+		structureIndex = 2;
+	}
+
+	if(Input.GetKeyDown(KeyCode.B)){ // build
+		functionIndex = 0;
+	} else if(Input.GetKeyDown(KeyCode.N)){ // Sell
+		functionIndex = 1;
+	} else if(Input.GetKeyDown(KeyCode.U)){ // Upgrade
+		functionIndex = 2;
 	}
 
 	if(true) //if the build panel is open...
@@ -61,14 +70,32 @@ function Update ()
 		//drop turrets on click
 		if(Input.GetMouseButtonDown(0) && lastHitObj) //left mouse was clicked, and we have a tile selected
 		{
-			if(lastHitObj.tag == "PlacementPlane_Open") //if the selected tile is "open"...
+			if(lastHitObj.tag == "PlacementPlane_Open" && functionIndex == 0) //if the selected tile is "open"...
 			{
 //				//drop the chosen structure exactly at the tile's position, and rotation of zero. See how the "index" comes in handy here? :)
 				var newStructure : GameObject = Instantiate(allStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
 //				//set the new structure to have a random rotation, just for looks
-				newStructure.transform.localEulerAngles.y = (Random.Range(0,360));
+				newStructure.transform.parent = lastHitObj.transform;
+//				newStructure.transform.localEulerAngles.y = (Random.Range(0,360));
 				//set this tile's tag to "Taken", so we can't double-place structures
 				lastHitObj.tag = "PlacementPlane_Taken";
+			} else if (lastHitObj.tag == "PlacementPlane_Taken" && functionIndex == 1){
+				Destroy(lastHitObj.transform.GetChild(0).gameObject);
+				lastHitObj.tag = "PlacementPlane_Open";
+			} else if (lastHitObj.tag == "PlacementPlane_Taken" && functionIndex == 2){
+				print("test");
+				print(lastHitObj.transform.GetChild(0).tag);
+				if(lastHitObj.transform.GetChild(0).gameObject.tag == "Cube_Tower_1"){ 
+					print("cube");
+					Destroy(lastHitObj.transform.GetChild(0).gameObject);
+					var upgradeCubeStructure : GameObject = Instantiate(allStructures[1], lastHitObj.transform.position, Quaternion.identity);
+					upgradeCubeStructure.transform.parent = lastHitObj.transform;
+				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "Sphere_Tower_1"){ 
+					print("sphere");
+					Destroy(lastHitObj.transform.GetChild(0).gameObject);
+					var upgradeSphereStructure : GameObject = Instantiate(allStructures[3], lastHitObj.transform.position, Quaternion.identity);
+					upgradeSphereStructure.transform.parent = lastHitObj.transform;
+				}
 			}
 		}
 	}	
