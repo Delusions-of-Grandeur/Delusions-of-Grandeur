@@ -47,7 +47,7 @@ function Update ()
 		hoverMat = allMats[2];
 	}
 
-	if(true) //if the build panel is open...
+	if(false) //if the build panel is open...
 	{		
 		//create a ray, and shoot it from the mouse position, forward into the game
 		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
