@@ -9,6 +9,7 @@ var placementPlanesRoot : Transform;
 private var hoverMat : Material;
 var placementLayerMask : LayerMask;
 private var originalMat : Material;
+private var beforeLastHitObj : GameObject;
 private var lastHitObj : GameObject;
 var allMats : Material[];
 //
@@ -17,6 +18,7 @@ var allMats : Material[];
 var onColor : Color;
 var offColor : Color;
 var allStructures : GameObject[];
+var transparentStructures : GameObject[];
 //
 
 function Start()
@@ -47,21 +49,42 @@ function Update ()
 		hoverMat = allMats[2];
 	}
 
-	if(false) //if the build panel is open...
+	if(true) //if the build panel is open...
 	{		
 		//create a ray, and shoot it from the mouse position, forward into the game
 		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		var hit : RaycastHit;
 		if(Physics.Raycast (ray, hit, 1000, placementLayerMask)) //if the RAY hits anything on right LAYER, within 1000 meters, save the hit item in variable "HIT", then...
 		{
+
 			if(lastHitObj) //if we had previously hit an object...
 			{
 				lastHitObj.GetComponent.<Renderer>().material = originalMat; //visually de-select that object
 			}
 			
 			lastHitObj = hit.collider.gameObject; //replace the "selected plane" with this new plane that the raycast just hit
-			originalMat = lastHitObj.GetComponent.<Renderer>().material; //store the new plane's starting material, so we can reset it later
-			lastHitObj.GetComponent.<Renderer>().material = hoverMat; //set the plane's material to the highlighted look
+
+			//adding transparent towers
+			if(lastHitObj.tag == "PlacementPlane_Open"){
+
+				originalMat = lastHitObj.GetComponent.<Renderer>().material; //store the new plane's starting material, so we can reset it later
+				lastHitObj.GetComponent.<Renderer>().material = hoverMat; //set the plane's material to the highlighted look
+
+				var tempStructure : GameObject = Instantiate(transparentStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
+				tempStructure.transform.parent = lastHitObj.transform;
+				tempStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
+
+				if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+					Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
+				}
+
+				beforeLastHitObj = lastHitObj;
+			} else if(lastHitObj.tag == "PlacementPlane_Taken"){
+				if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+					Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
+				}
+				beforeLastHitObj = null;
+			}
 		}
 		else //...if the raycast didn't hit anything (ie, the mouse moved outside the tiles) ...
 		{
@@ -69,6 +92,11 @@ function Update ()
 			{
 				lastHitObj.GetComponent.<Renderer>().material = originalMat; //visually de-select that object
 				lastHitObj = null; //nullify the plane selection- this is so that we can't accidentally drop turrets without a proper and valid location selected
+			}
+
+			if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+				Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
+				beforeLastHitObj = null;
 			}
 		}
 		
@@ -79,9 +107,8 @@ function Update ()
 			{
 //				//drop the chosen structure exactly at the tile's position, and rotation of zero. See how the "index" comes in handy here? :)
 				var newStructure : GameObject = Instantiate(allStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
-//				//set the new structure to have a random rotation, just for looks
 				newStructure.transform.parent = lastHitObj.transform;
-//				newStructure.transform.localEulerAngles.y = (Random.Range(0,360));
+				newStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 				//set this tile's tag to "Taken", so we can't double-place structures
 				lastHitObj.tag = "PlacementPlane_Taken";
 			} else if (lastHitObj.tag == "PlacementPlane_Taken" && functionIndex == 1){
@@ -94,11 +121,13 @@ function Update ()
 					print("cube");
 					Destroy(lastHitObj.transform.GetChild(0).gameObject);
 					var upgradeCubeStructure : GameObject = Instantiate(allStructures[1], lastHitObj.transform.position, Quaternion.identity);
+					upgradeCubeStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 					upgradeCubeStructure.transform.parent = lastHitObj.transform;
 				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "Sphere_Tower_1"){ 
 					print("sphere");
 					Destroy(lastHitObj.transform.GetChild(0).gameObject);
 					var upgradeSphereStructure : GameObject = Instantiate(allStructures[3], lastHitObj.transform.position, Quaternion.identity);
+					upgradeSphereStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 					upgradeSphereStructure.transform.parent = lastHitObj.transform;
 				}
 			}
