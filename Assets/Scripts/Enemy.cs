@@ -31,12 +31,22 @@ namespace SpawningFramework
 
         void move()
         {
-            transform.Translate(0, 0.025f, 0);
+           // transform.Translate(0, 0.025f, 0);
         }
 
         /// Called when the player loses
         public virtual void OnGameOver()
         {
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            Debug.Log(other.tag);
+            if (other.tag == ("Player"))
+            {
+                Hurt(100);
+//              Destroy(other.gameObject);        
+            }
         }
 
         #region Taking Damage
@@ -51,6 +61,9 @@ namespace SpawningFramework
             if (health < 0.1)
             {
                 alive = false;
+                SpawnController.numAlive--;
+                Destroy(this.gameObject);
+                Destroy(this);
                 return true;
             }
 

@@ -10,7 +10,12 @@ TagManager:
   - Sphere_Tower_2
   - Cube_Tower_1
   - Cube_Tower_2
+<<<<<<< HEAD
   - Enemy
+=======
+  - Spawn_Point
+  - Bullet
+>>>>>>> f0866dc31ca67d0e0839026a0856d4cf0a8819ff
   layers:
   - Default
   - TransparentFX
