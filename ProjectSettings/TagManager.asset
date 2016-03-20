@@ -10,6 +10,8 @@ TagManager:
   - Sphere_Tower_2
   - Cube_Tower_1
   - Cube_Tower_2
+  - Spawn_Point
+  - Bullet
   layers:
   - Default
   - TransparentFX
