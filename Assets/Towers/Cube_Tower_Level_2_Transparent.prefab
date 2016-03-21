@@ -11,8 +11,6 @@ GameObject:
   - 33: {fileID: 3357754}
   - 65: {fileID: 6587678}
   - 23: {fileID: 2377570}
-  - 114: {fileID: 11458486}
-  - 114: {fileID: 11450494}
   m_Layer: 0
   m_Name: Cube_Tower_Level_2_Transparent
   m_TagString: Cube_Tower_2
@@ -201,7 +199,7 @@ BoxCollider:
   m_GameObject: {fileID: 179588}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -213,7 +211,7 @@ BoxCollider:
   m_GameObject: {fileID: 154820}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -225,32 +223,10 @@ BoxCollider:
   m_GameObject: {fileID: 106434}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11450494
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5d410e94dc1b4c7c9daa5d175726208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11458486
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5d410e94dc1b4c7c9daa5d175726208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
