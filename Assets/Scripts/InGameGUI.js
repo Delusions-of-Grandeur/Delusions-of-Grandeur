@@ -44,9 +44,17 @@ function Update ()
 	} else if(Input.GetKeyDown(KeyCode.N)){ // Sell
 		functionIndex = 1;
 		hoverMat = allMats[1];
+		if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+			Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
+		}
+		beforeLastHitObj = null;
 	} else if(Input.GetKeyDown(KeyCode.U)){ // Upgrade
 		functionIndex = 2;
 		hoverMat = allMats[2];
+		if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+			Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
+		}
+		beforeLastHitObj = null;
 	}
 
 	if(true) //if the build panel is open...
@@ -70,20 +78,27 @@ function Update ()
 				originalMat = lastHitObj.GetComponent.<Renderer>().material; //store the new plane's starting material, so we can reset it later
 				lastHitObj.GetComponent.<Renderer>().material = hoverMat; //set the plane's material to the highlighted look
 
-				var tempStructure : GameObject = Instantiate(transparentStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
-				tempStructure.transform.parent = lastHitObj.transform;
-				tempStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
+				if(functionIndex == 0){
+					var tempStructure : GameObject = Instantiate(transparentStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
+					tempStructure.transform.parent = lastHitObj.transform;
+					tempStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 
-				if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
-					Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
+					if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+						Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
+					}
+
+					beforeLastHitObj = lastHitObj;
 				}
-
-				beforeLastHitObj = lastHitObj;
 			} else if(lastHitObj.tag == "PlacementPlane_Taken"){
 				if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
 					Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
 				}
 				beforeLastHitObj = null;
+
+				if (functionIndex != 0){
+					originalMat = lastHitObj.GetComponent.<Renderer>().material; //store the new plane's starting material, so we can reset it later
+					lastHitObj.GetComponent.<Renderer>().material = hoverMat; //set the plane's material to the highlighted look
+				}
 			}
 		}
 		else //...if the raycast didn't hit anything (ie, the mouse moved outside the tiles) ...
