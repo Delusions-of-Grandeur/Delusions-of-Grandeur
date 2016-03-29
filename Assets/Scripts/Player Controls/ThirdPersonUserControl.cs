@@ -4,6 +4,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
+<<<<<<< eff6fb361152c5ed512a0f8eeb74da6fdf3012fc
 	[RequireComponent (typeof(ThirdPersonCharacter))]
 	public class ThirdPersonUserControl : MonoBehaviour
 	{
@@ -35,14 +36,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			public Transform spine; //the bone where we rotate the body of our character from
 			//The Z/x/y values, doesn't really matter the values here since we ovveride them depending on the weapon
-			public float aimingZ = 213.46f; 
+			public float aimingZ = 213.46f;
 			public float aimingX = -65.93f;
 			public float aimingY = 20.1f;
 			//The point in the ray we do from our camera, basically how far the character looks
-			public float point = 30; 
+			public float point = 30;
 
-			public bool DebugAim; 
-			//Help us debug the aim, basically makes it possible to change the current values 
+			public bool DebugAim;
+			//Help us debug the aim, basically makes it possible to change the current values
 			//on runtime since we are hardcoding them
 		}
 
@@ -80,8 +81,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void LateUpdate ()
 		{
-			
-			//our aiming weight smoothly becomes 0 or 1 depending if we are aiming or not, 
+
+			//our aiming weight smoothly becomes 0 or 1 depending if we are aiming or not,
 			aimingWeight = Mathf.MoveTowards (aimingWeight, (aim) ? 1.0f : 0.0f, Time.deltaTime * 5);
 
 			//the normal and aiming state of the camera, basically how much close to the player it is
@@ -110,7 +111,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
-	
+
 
 		// Fixed update is called in sync with physics
 		private void FixedUpdate ()

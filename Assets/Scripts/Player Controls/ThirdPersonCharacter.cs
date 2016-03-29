@@ -65,7 +65,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
 
-			//If we are aiming we want to move the character in a different way,
+			//If we are aiming we won't to move the character in a different way,
 			//so call this function when we are not aiming
 			if(!aim)
 			{
