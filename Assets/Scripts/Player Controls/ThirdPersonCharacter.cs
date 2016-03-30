@@ -20,7 +20,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Animator m_Animator;
 		bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
-		const float k_Half = 1f;
+		const float k_Half = .5f;
 		float m_TurnAmount;
 		float m_ForwardAmount;
 		Vector3 m_GroundNormal;
@@ -65,10 +65,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
 
-			//If we are aiming we won't to move the character in a different way,
+			//If we are aiming we want to move the character in a different way,
 			//so call this function when we are not aiming
 			if(!aim)
 			{
+				//Function that makes the character face the same direction as the camera
+				TurnTowardsCameraForward();
+				//Applys extra rotation speed so that the character turns faster
+				ApplyExtraTurnRotation ();
+			} else {
 				//Function that makes the character face the same direction as the camera
 				TurnTowardsCameraForward();
 				//Applys extra rotation speed so that the character turns faster
