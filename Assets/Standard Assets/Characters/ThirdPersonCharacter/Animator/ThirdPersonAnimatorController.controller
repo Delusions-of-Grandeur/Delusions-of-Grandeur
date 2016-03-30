@@ -13,43 +13,51 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Turn
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Crouch
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: OnGround
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Jump
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: JumpLeg
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
     m_Controller: {fileID: 9100000}
+=======
+    m_Controller: {fileID: 0}
+>>>>>>> Began aim animation
   - m_Name: Aim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
     m_Controller: {fileID: 9100000}
+=======
+    m_Controller: {fileID: 0}
+>>>>>>> Began aim animation
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -603,6 +611,7 @@ BlendTree:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Blend Tree
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: b745dd64a07edc441b729ac3f977f975, type: 3}
@@ -646,11 +655,20 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: Forward
   m_BlendParameterY: Turn
+=======
+  m_Childs: []
+  m_BlendParameter: Forward
+  m_BlendParameterY: Forward
+>>>>>>> Began aim animation
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
   m_BlendType: 3
+=======
+  m_BlendType: 0
+>>>>>>> Began aim animation
 --- !u!206 &20659883
 BlendTree:
   m_ObjectHideFlags: 1
@@ -742,6 +760,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
   m_CanTransitionToSelf: 1
 --- !u!1101 &110107084
 AnimatorStateTransition:
@@ -766,6 +785,8 @@ AnimatorStateTransition:
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
+=======
+>>>>>>> Began aim animation
   m_CanTransitionToSelf: 1
 --- !u!1101 &110123257
 AnimatorStateTransition:
@@ -793,6 +814,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
   m_CanTransitionToSelf: 1
 --- !u!1101 &110123942
 AnimatorStateTransition:
@@ -841,6 +863,8 @@ AnimatorStateTransition:
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
+=======
+>>>>>>> Began aim animation
   m_CanTransitionToSelf: 1
 --- !u!1101 &110135218
 AnimatorStateTransition:
@@ -866,6 +890,7 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
 --- !u!1101 &110152516
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -911,6 +936,8 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+=======
+>>>>>>> Began aim animation
 --- !u!1101 &110157624
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -927,8 +954,13 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
   m_TransitionDuration: 0.100000024
   m_TransitionOffset: 0.41448694
+=======
+  m_TransitionDuration: 0.1
+  m_TransitionOffset: 0
+>>>>>>> Began aim animation
   m_ExitTime: 0.9
   m_HasExitTime: 1
   m_HasFixedDuration: 1
@@ -982,6 +1014,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
   m_CanTransitionToSelf: 1
 --- !u!1101 &110168452
 AnimatorStateTransition:
@@ -1006,6 +1039,8 @@ AnimatorStateTransition:
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
+=======
+>>>>>>> Began aim animation
   m_CanTransitionToSelf: 1
 --- !u!1101 &110172777
 AnimatorStateTransition:
@@ -1034,6 +1069,7 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
 --- !u!1101 &110187436
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1079,6 +1115,8 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+=======
+>>>>>>> Began aim animation
 --- !u!1101 &110195022
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1095,9 +1133,15 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
   m_TransitionDuration: 0.19260097
   m_TransitionOffset: 0.6402691
   m_ExitTime: 0.898864
+=======
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.7470205
+>>>>>>> Began aim animation
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1128,6 +1172,7 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
 --- !u!1102 &110211436
 AnimatorState:
   serializedVersion: 5
@@ -1177,6 +1222,8 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
+=======
+>>>>>>> Began aim animation
 --- !u!1102 &110228654
 AnimatorState:
   serializedVersion: 5
@@ -1188,7 +1235,10 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110157624}
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
   - {fileID: 110132558}
+=======
+>>>>>>> Began aim animation
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1202,6 +1252,7 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
 --- !u!1102 &110232336
 AnimatorState:
   serializedVersion: 5
@@ -1274,6 +1325,8 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
+=======
+>>>>>>> Began aim animation
 --- !u!1102 &110276412
 AnimatorState:
   serializedVersion: 5
@@ -1299,6 +1352,7 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
 --- !u!1102 &110291510
 AnimatorState:
   serializedVersion: 5
@@ -1323,6 +1377,8 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
+=======
+>>>>>>> Began aim animation
 --- !u!1102 &110298501
 AnimatorState:
   serializedVersion: 5
@@ -1368,10 +1424,14 @@ AnimatorStateMachine:
     m_Position: {x: 444, y: -48, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110228654}
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
     m_Position: {x: 744, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110232336}
     m_Position: {x: 1020, y: 240, z: 0}
+=======
+    m_Position: {x: 744, y: 180, z: 0}
+>>>>>>> Began aim animation
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

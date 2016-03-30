@@ -23,6 +23,7 @@ public class Shoot : MonoBehaviour {
 		if (playerScript.aim) {
 			if(Input.GetKey(KeyCode.Mouse0) && counter > delayTime)
 			{
+<<<<<<< dd6c6a9ff5b0f174622429c70f18ccc9c1e510c5
 				mousePos = Input.mousePosition;
 				transform.LookAt (Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, zDistance)));
 				Instantiate(bullet, transform.position, transform.rotation);
@@ -35,6 +36,9 @@ public class Shoot : MonoBehaviour {
 				{
 					//Instantiate(bulletHole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
 				}
+=======
+				//Instantiate(bulletHole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+>>>>>>> Began aim animation
 			}
 			counter += Time.deltaTime;
 		}
