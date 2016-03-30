@@ -4,7 +4,7 @@ using System.Collections;
 public class Shoot : MonoBehaviour {
 
 	public GameObject bullet;
-	public GameObject bulletHole;
+	//public GameObject bulletHole;
 	public float delayTime = 0.5f;
 	
 	private float counter = 0;
@@ -26,7 +26,7 @@ public class Shoot : MonoBehaviour {
 			Ray ray = new Ray(transform.position, transform.forward);
 			if(Physics.Raycast(ray, out hit, zDistance))
 			{
-				Instantiate(bulletHole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+				//Instantiate(bulletHole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
 			}
 		}
 		counter += Time.deltaTime;
