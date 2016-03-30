@@ -62,9 +62,9 @@ public class SpawnController : MonoBehaviour {
     void startWave()
     {
         Debug.Log("Starting wave: " + round);
-        for(int i = 0; i < (2 + 2 * round); i++)
+        for(int i = 0; i < (3 + 2 * round); i++)
         {
-            Invoke("Spawn", Random.Range(0, 2));
+            Invoke("Spawn", Random.Range(0, 4));
         }
     }
 
