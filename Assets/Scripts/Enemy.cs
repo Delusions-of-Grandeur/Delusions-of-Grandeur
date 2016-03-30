@@ -8,8 +8,7 @@ namespace SpawningFramework
 
         public float MaxHealth;
         float health;
-        Vector3 pos;
-
+        StateMachine sm;
 
         [HideInInspector]
         public bool alive;
@@ -23,20 +22,13 @@ namespace SpawningFramework
         {
             health = MaxHealth;
             alive = true;
-            pos = transform.position;
-            
-            InvokeRepeating("move", 0.01f, .2f);
+//            InvokeRepeating("move", 0.01f, .2f);
 
         }
 
         void move()
         {
-           // transform.Translate(0, 0.025f, 0);
-        }
-
-        /// Called when the player loses
-        public virtual void OnGameOver()
-        {
+            transform.Translate(0, 0.025f, 0);
         }
 
         void OnTriggerEnter(Collider other)
@@ -49,7 +41,6 @@ namespace SpawningFramework
             }
         }
 
-        #region Taking Damage
         /// Hurts the enemy and returns if it dies or not
         public virtual bool Hurt(float damage)
         {
@@ -71,6 +62,33 @@ namespace SpawningFramework
         }
 
 
-        #endregion
     }
+}
+
+public class StateMachine
+{
+    int currentState;
+
+    public void update()
+    {
+        switch (currentState)
+        {
+            case 0:     // Default state
+                // call navigation torwards ship
+
+                break;
+            case 1:     // Attack
+
+                break;
+            case 2:     // Pursue
+
+                break;
+            case 3:     // Die
+
+                break;
+            case 4:     
+                break;
+        }
+    }
+
 }

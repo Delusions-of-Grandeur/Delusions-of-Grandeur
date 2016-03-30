@@ -1,2 +1,6 @@
+<<<<<<< 50a6ad5dda00636349ffa8e2b851187bcb8fec8c
 m_EditorVersion: 5.3.4f1
+=======
+m_EditorVersion: 5.3.2f1
+>>>>>>> added stuff
 m_StandardAssetsVersion: 0
