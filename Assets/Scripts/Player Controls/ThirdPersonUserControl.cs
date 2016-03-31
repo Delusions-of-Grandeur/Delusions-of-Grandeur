@@ -48,6 +48,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		//Reference to the camera
 		FreeCameraLook cameraFunctions;
+
 		private void Start ()
 		{
 			// get the transform of the main camera
@@ -62,7 +63,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// get the third person character ( this should never be null due to require component )
 			m_Character = GetComponent<ThirdPersonCharacter> ();
 			anim = GetComponent<Animator> ();
-
 		}
 
 
@@ -87,7 +87,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			//the normal and aiming state of the camera, basically how much close to the player it is
 			Vector3 normalState = new Vector3 (0, 0, -2f);
 			Vector3 aimingState = new Vector3(0,0,-0.5f);
-
 
 			//and that is lerped depending on t = aimigweight
 			Vector3 pos = Vector3.Lerp (normalState, aimingState, aimingWeight);
@@ -163,7 +162,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				//to take every movement in the animator and convert it to a force to be applied to the rigidbody
 				anim.SetFloat("Forward",v);
 				anim.SetFloat("Turn",h);
-
 			}
 
 
