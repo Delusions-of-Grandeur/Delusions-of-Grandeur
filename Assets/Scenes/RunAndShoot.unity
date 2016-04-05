@@ -2315,6 +2315,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+    - target: {fileID: 100168, guid: 3d094f9a69e4f47e78d7bd3122f92450, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d094f9a69e4f47e78d7bd3122f92450, type: 3}
   m_IsPrefabParent: 0
@@ -25543,7 +25547,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1669201349}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e32b18eeba3c428c839b7cdcb5ab0c0, type: 3}
   m_Name: 
@@ -25584,13 +25588,15 @@ MonoBehaviour:
   - {fileID: 128096, guid: eac4a7eed00664e1ba823309eb5d2253, type: 2}
   - {fileID: 197590, guid: 2cc006bb9e6ae4253bfc56ccecf17949, type: 2}
   transparentStructures: []
+  player: {fileID: 0}
+  canBuild: 0
 --- !u!114 &1669201357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1669201349}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 966d71485107d4fd99c9e3d03329c772, type: 3}
   m_Name: 
