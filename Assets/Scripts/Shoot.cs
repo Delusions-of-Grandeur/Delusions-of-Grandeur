@@ -11,24 +11,34 @@ public class Shoot : MonoBehaviour {
 	private Vector3 mousePos;
 	private float zDistance = 100f;
 
-	
+
 	void FixedUpdate ()	
- 	{
-		if(Input.GetKey(KeyCode.Mouse0) && counter > delayTime)
-		{
-			mousePos = Input.mousePosition;
-			transform.LookAt (Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, zDistance)));
-			Instantiate(bullet, transform.position, transform.rotation);
-			//GetComponent<AudioSource>().Play();
-			counter = 0;
-			
-			RaycastHit hit;
-			Ray ray = new Ray(transform.position, transform.forward);
-			if(Physics.Raycast(ray, out hit, zDistance))
+ 	{	
+		GameObject thePlayer = GameObject.FindWithTag("Player");
+		UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl playerScript = thePlayer.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl>();
+
+		GameObject camera = GameObject.FindWithTag ("MainCamera");
+		print(camera.GetComponent<InGameGUI>());
+		 
+
+		if (playerScript.aim) {
+			if(Input.GetKey(KeyCode.Mouse0) && counter > delayTime)
 			{
-				//Instantiate(bulletHole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+				mousePos = Input.mousePosition;
+				transform.LookAt (Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, zDistance)));
+				Instantiate(bullet, transform.position, transform.rotation);
+				//GetComponent<AudioSource>().Play();
+				counter = 0;
+
+				RaycastHit hit;
+				Ray ray = new Ray(transform.position, transform.forward);
+				if(Physics.Raycast(ray, out hit, zDistance))
+				{
+					//Instantiate(bulletHole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+				}
 			}
+			counter += Time.deltaTime;
 		}
-		counter += Time.deltaTime;
+
 	}
 }

@@ -21,6 +21,11 @@ var allStructures : GameObject[];
 var transparentStructures : GameObject[];
 //
 
+var player : GameObject;
+
+public var canBuild : boolean;
+
+
 function Start()
 {
 	//reset the structure index, refresh the GUI
@@ -31,6 +36,9 @@ function Start()
 
 function Update () 
 {
+ 
+   	// get a reference to the target script (ScriptName is the name of your script):
+   	//var targetScript = player.GetComponent(ThirdPersonUserController);
 
 	if(Input.GetKeyDown(KeyCode.Alpha1)){
 		structureIndex = 0;
@@ -49,7 +57,7 @@ function Update ()
 		hoverMat = allMats[2];
 	}
 
-	if(true) //if the build panel is open...
+	if(canBuild) //if the build panel is open...
 	{		
 		//create a ray, and shoot it from the mouse position, forward into the game
 		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
