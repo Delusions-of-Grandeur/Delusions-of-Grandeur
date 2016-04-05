@@ -16,9 +16,8 @@ public class Shoot : MonoBehaviour {
  	{	
 		GameObject thePlayer = GameObject.FindWithTag("Player");
 		UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl playerScript = thePlayer.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl>();
-
 		GameObject camera = GameObject.FindWithTag ("MainCamera");
-		print(camera.GetComponent<InGameGUI>());
+		//print(camera.GetComponent<InGameGUI>());
 		 
 
 		if (playerScript.aim) {
