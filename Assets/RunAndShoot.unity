@@ -2801,6 +2801,9 @@ MonoBehaviour:
   - {fileID: 106434, guid: 484502dcc15d24e7fb4b6c13d0471931, type: 2}
   - {fileID: 128096, guid: eac4a7eed00664e1ba823309eb5d2253, type: 2}
   - {fileID: 197590, guid: 2cc006bb9e6ae4253bfc56ccecf17949, type: 2}
+  transparentStructures: []
+  player: {fileID: 0}
+  canBuild: 0
 --- !u!114 &1669201357
 MonoBehaviour:
   m_ObjectHideFlags: 0
