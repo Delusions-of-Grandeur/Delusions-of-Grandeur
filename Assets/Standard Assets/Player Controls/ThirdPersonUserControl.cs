@@ -105,17 +105,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (aim) { //if we aim
 				//pass the new rotation to the IK bone
 				Vector3 eulerAngleOffset = Vector3.zero;
-				eulerAngleOffset = new Vector3 (ik.aimingX, ik.aimingY, ik.aimingZ);
+				//eulerAngleOffset = new Vector3 (ik.aimingX, ik.aimingY, ik.aimingZ);
 
 				//do a ray from the center of the camera and forward
 				Ray ray = new Ray (m_Cam.position, m_CamForward);
 
 				//find where the character should look
-				Vector3 lookPosition = ray.GetPoint (ik.point);
+				//Vector3 lookPosition = ray.GetPoint (ik.point);
 
 				//and apply the rotation to the bone
-				ik.spine.LookAt (lookPosition);
-				ik.spine.Rotate (eulerAngleOffset, Space.Self);
+				//ik.spine.LookAt (lookPosition);
+				//ik.spine.Rotate (eulerAngleOffset, Space.Self);
 			}
 		}
 

@@ -879,6 +879,47 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 494666, guid: de4a430417ab045b2a83709b84af9ebf, type: 2}
   m_PrefabInternal: {fileID: 1354900778}
+--- !u!1 &453023904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 453023905}
+  - 114: {fileID: 453023906}
+  m_Layer: 0
+  m_Name: Laser Eyes Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &453023905
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453023904}
+  m_LocalRotation: {x: -0.5000004, y: -0.4999998, z: -0.5000002, w: -0.49999964}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1008660090}
+  m_RootOrder: 0
+--- !u!114 &453023906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453023904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e50ffd1079cb7459f1eaa31b317e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 100000, guid: 9589d148f7842d3499c5bdfb0cf72eea, type: 2}
+  delayTime: 0.5
 --- !u!1001 &467344573
 Prefab:
   m_ObjectHideFlags: 0
@@ -2012,6 +2053,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 494666, guid: de4a430417ab045b2a83709b84af9ebf, type: 2}
   m_PrefabInternal: {fileID: 1300931829}
+--- !u!4 &1008660090 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 447010, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
+  m_PrefabInternal: {fileID: 436921778}
 --- !u!1001 &1053244210
 Prefab:
   m_ObjectHideFlags: 0
@@ -3164,6 +3209,8 @@ MonoBehaviour:
   - {fileID: 798887366}
   - {fileID: 15446958}
   - {fileID: 1393469527}
+  player: {fileID: 0}
+  canBuild: 0
 --- !u!114 &1669201357
 MonoBehaviour:
   m_ObjectHideFlags: 0

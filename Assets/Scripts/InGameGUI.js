@@ -21,9 +21,7 @@ var allStructures : GameObject[];
 var transparentStructures : GameObject[];
 //
 
-var player : GameObject;
-
-public var canBuild : boolean;
+private var playerScript : UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl;
 
 
 function Start()
@@ -31,6 +29,8 @@ function Start()
 	//reset the structure index, refresh the GUI
 	structureIndex = 0;
 	hoverMat = allMats[0];
+
+
 }
 
 
@@ -38,6 +38,9 @@ function Update ()
 {
  
    	// get a reference to the target script (ScriptName is the name of your script):
+   	var thePlayer = GameObject.FindWithTag("Player");
+   	playerScript = thePlayer.GetComponent("UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl");
+
 
 	if(Input.GetKeyDown(KeyCode.Alpha1)){
 		structureIndex = 0;
@@ -64,8 +67,9 @@ function Update ()
 		beforeLastHitObj = null;
 	}
 
-	if(canBuild) //if the build panel is open...
+	if(!playerScript.aim) //if the build panel is open...
 	{		
+		print("Building mode");
 		//create a ray, and shoot it from the mouse position, forward into the game
 		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		var hit : RaycastHit;
