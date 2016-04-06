@@ -21,9 +21,7 @@ var allStructures : GameObject[];
 var transparentStructures : GameObject[];
 //
 
-var player : GameObject;
-
-public var canBuild : boolean;
+private var playerScript : UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl;
 
 
 function Start()
@@ -31,14 +29,18 @@ function Start()
 	//reset the structure index, refresh the GUI
 	structureIndex = 0;
 	hoverMat = allMats[0];
+
+
 }
 
 
-function Update () 
+function Update ()
 {
- 
+
    	// get a reference to the target script (ScriptName is the name of your script):
-   	//var targetScript = player.GetComponent<Script>(ThirdPersonUserControl);
+   	var thePlayer = GameObject.FindWithTag("Player");
+   	playerScript = thePlayer.GetComponent("UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl");
+
 
 	if(Input.GetKeyDown(KeyCode.Alpha1)){
 		structureIndex = 0;
@@ -65,8 +67,9 @@ function Update ()
 		beforeLastHitObj = null;
 	}
 
-	if(canBuild) //if the build panel is open...
-	{		
+	if(!playerScript.aim) //if the build panel is open...
+	{
+		print("Building mode");
 		//create a ray, and shoot it from the mouse position, forward into the game
 		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		var hit : RaycastHit;
@@ -77,7 +80,7 @@ function Update ()
 			{
 				lastHitObj.GetComponent.<Renderer>().material = originalMat; //visually de-select that object
 			}
-			
+
 			lastHitObj = hit.collider.gameObject; //replace the "selected plane" with this new plane that the raycast just hit
 
 			//adding transparent towers
@@ -122,7 +125,7 @@ function Update ()
 				beforeLastHitObj = null;
 			}
 		}
-		
+
 		//drop turrets on click
 		if(Input.GetMouseButtonDown(0) && lastHitObj) //left mouse was clicked, and we have a tile selected
 		{
@@ -140,13 +143,13 @@ function Update ()
 			} else if (lastHitObj.tag == "PlacementPlane_Taken" && functionIndex == 2){
 				print("test");
 				print(lastHitObj.transform.GetChild(0).tag);
-				if(lastHitObj.transform.GetChild(0).gameObject.tag == "Cube_Tower_1"){ 
+				if(lastHitObj.transform.GetChild(0).gameObject.tag == "Cube_Tower_1"){
 					print("cube");
 					Destroy(lastHitObj.transform.GetChild(0).gameObject);
 					var upgradeCubeStructure : GameObject = Instantiate(allStructures[1], lastHitObj.transform.position, Quaternion.identity);
 					upgradeCubeStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 					upgradeCubeStructure.transform.parent = lastHitObj.transform;
-				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "Sphere_Tower_1"){ 
+				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "Sphere_Tower_1"){
 					print("sphere");
 					Destroy(lastHitObj.transform.GetChild(0).gameObject);
 					var upgradeSphereStructure : GameObject = Instantiate(allStructures[3], lastHitObj.transform.position, Quaternion.identity);
@@ -155,5 +158,5 @@ function Update ()
 				}
 			}
 		}
-	}	
+	}
 }

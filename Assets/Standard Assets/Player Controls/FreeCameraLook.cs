@@ -126,7 +126,7 @@ public class FreeCameraLook : Pivot {
 
 		if(x > crosshairOffsetWiggle || x < -crosshairOffsetWiggle || y > crosshairOffsetWiggle || y <-crosshairOffsetWiggle)
 		{
-			activeCrosshair.WiggleCrosshair();
+			//activeCrosshair.WiggleCrosshair();
 		}
 	}
 

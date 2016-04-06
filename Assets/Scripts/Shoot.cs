@@ -6,8 +6,8 @@ public class Shoot : MonoBehaviour {
 	public GameObject bullet;
 	//public GameObject bulletHole;
 	public float delayTime = 0.5f;
+	private float counter = 0.5f;
 
-	private float counter = 0;
 	private Vector3 mousePos;
 	private float zDistance = 100f;
 
@@ -17,15 +17,13 @@ public class Shoot : MonoBehaviour {
 		GameObject thePlayer = GameObject.FindWithTag("Player");
 		UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl playerScript = thePlayer.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl>();
 
-		//GameObject camera = GameObject.FindWithTag ("MainCamera");
-
 		if (playerScript.aim) {
 			if(Input.GetKey(KeyCode.Mouse0) && counter > delayTime)
 			{
 				mousePos = Input.mousePosition;
 				transform.LookAt (Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, zDistance)));
 				Instantiate(bullet, transform.position, transform.rotation);
-				//GetComponent<AudioSource>().Play();
+				GetComponent<AudioSource>().Play();
 				counter = 0;
 
 				RaycastHit hit;
