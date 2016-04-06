@@ -3,7 +3,8 @@ using System.Collections;
 
 public class SpawnController : MonoBehaviour {
 
-    public GameObject Enemy;
+    public GameObject EnemySmall;
+    public GameObject EnemyLarge;
     GameObject[] objs;
     int top;
 
@@ -62,9 +63,9 @@ public class SpawnController : MonoBehaviour {
     void startWave()
     {
         Debug.Log("Starting wave: " + round);
-        for(int i = 0; i < (2 + 2 * round); i++)
+        for(int i = 0; i < (3 + 2 * round); i++)
         {
-            Invoke("Spawn", Random.Range(0, 2));
+            Invoke("Spawn", Random.Range(0, 4));
         }
     }
 
@@ -76,7 +77,7 @@ public class SpawnController : MonoBehaviour {
 
     public void SpawnEnemy()
     {
-        Instantiate(Enemy, RandomCircle(objs[Random.Range(0, top + 1)].GetComponent<Transform>().position, 4), Quaternion.identity);
+        Instantiate(EnemySmall, RandomCircle(objs[Random.Range(0, top + 1)].GetComponent<Transform>().position, 4), Quaternion.identity);
         numAlive++;
     }
 }
