@@ -29,6 +29,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		Animator anim;
 
+		public float normalZ;
+		public float aimZ;
+		public float aimX;
+
 		//Ik stuff
 		[SerializeField] public IK ik;
 		[System.Serializable] public class IK
@@ -63,6 +67,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// get the third person character ( this should never be null due to require component )
 			m_Character = GetComponent<ThirdPersonCharacter> ();
 			anim = GetComponent<Animator> ();
+
+
+			normalZ = -1.2f;
+			aimZ = 0.0f;
+			aimX = 0.1f;
 		}
 
 
@@ -85,8 +94,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			aimingWeight = Mathf.MoveTowards (aimingWeight, (aim) ? 1.0f : 0.0f, Time.deltaTime * 5);
 
 			//the normal and aiming state of the camera, basically how much close to the player it is
-			Vector3 normalState = new Vector3 (0, 0, -2f);
-			Vector3 aimingState = new Vector3(0,0,-0.5f);
+			Vector3 normalState = new Vector3 (0, 0, normalZ);
+			Vector3 aimingState = new Vector3(aimX,0,aimZ);
 
 			//and that is lerped depending on t = aimigweight
 			Vector3 pos = Vector3.Lerp (normalState, aimingState, aimingWeight);
