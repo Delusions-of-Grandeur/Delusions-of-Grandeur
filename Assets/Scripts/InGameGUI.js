@@ -38,7 +38,6 @@ function Update ()
 {
  
    	// get a reference to the target script (ScriptName is the name of your script):
-   	//var targetScript = player.GetComponent<Script>(ThirdPersonUserControl);
 
 	if(Input.GetKeyDown(KeyCode.Alpha1)){
 		structureIndex = 0;
