@@ -17,6 +17,8 @@ public class MoveBullet : MonoBehaviour {
 
     void OnTriggerEnter()
     {
-        Destroy(gameObject); //Delete the bullet 
+		if(other.tag != "Cube_Tower_1"){
+			Destroy(gameObject); //Delete the bullet 
+		}
     }
 }
