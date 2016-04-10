@@ -4,7 +4,21 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - PlacementPlane_Taken
+  - PlacementPlane_Open
+  - Sphere_Tower_1
+  - Sphere_Tower_2
+  - Cube_Tower_1
+  - Cube_Tower_2
+  - Main_Text
   - Bullet
+  - Enemy
+  - Spawn_Point
+  - Sphere_Tower_1
+  - Cube_Tower_2
+  - Cube_Tower_1
+  - Sphere_Tower_2
+  - PlacementPlane_Open
   layers:
   - Default
   - TransparentFX
@@ -14,7 +28,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - placementLayerMask
   - 
   - 
   - 
