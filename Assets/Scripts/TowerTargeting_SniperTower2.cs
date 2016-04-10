@@ -67,27 +67,20 @@ public class TowerTargeting_SniperTower2 : MonoBehaviour {
 
 	void customLookAt()
 	{
-		Vector3 defaultBase = gattlingBase.transform.eulerAngles;
-		gattlingBase.transform.LookAt (target);
-		gattlingBase.transform.eulerAngles = new Vector3 (defaultBase.x, gattlingBase.transform.eulerAngles.y, defaultBase.z);
+		Vector3 defaultBase = sniperBase.transform.eulerAngles;
+		sniperBase.transform.LookAt (target);
+		sniperBase.transform.eulerAngles = new Vector3 (defaultBase.x, sniperBase.transform.eulerAngles.y, defaultBase.z);
 
-		gattlingGun.transform.LookAt (target);
-		gattlingGun.transform.eulerAngles = gattlingGun.transform.eulerAngles + 180f * Vector3.up;
-		gattlingGun.transform.eulerAngles = new Vector3 (-gattlingGun.transform.eulerAngles.x, gattlingGun.transform.eulerAngles.y, gattlingGun.transform.eulerAngles.z);
-		gattlingGun2.transform.LookAt (target);
-		gattlingGun2.transform.eulerAngles = gattlingGun2.transform.eulerAngles + 180f * Vector3.up;
-		gattlingGun2.transform.eulerAngles = new Vector3 (-gattlingGun2.transform.eulerAngles.x, gattlingGun2.transform.eulerAngles.y, gattlingGun2.transform.eulerAngles.z);
+		sniperGun.transform.LookAt (target);
+		sniperGun.transform.eulerAngles = sniperGun.transform.eulerAngles + 180f * Vector3.up;
+		sniperGun.transform.eulerAngles = new Vector3 (-sniperGun.transform.eulerAngles.x, sniperGun.transform.eulerAngles.y, sniperGun.transform.eulerAngles.z);
 	}
 
 	IEnumerator shoot()
 	{
 		yield return new WaitForSeconds(.1f);
-		barrel.transform.Rotate (0,0,360*Time.deltaTime);
-		barrel2.transform.Rotate (0,0,360*Time.deltaTime);
 		GameObject bullet = (GameObject)Instantiate(bulletPrefab, barrel.transform.position, Quaternion.identity);
 		bullet.transform.LookAt (target);
-		GameObject bullet2 = (GameObject)Instantiate(bulletPrefab, barrel2.transform.position, Quaternion.identity);
-		bullet2.transform.LookAt (target);
 
 		if(target == null){
 			yield return null;

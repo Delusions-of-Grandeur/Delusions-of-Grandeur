@@ -40,9 +40,7 @@ public class TowerTargeting_SniperTower1 : MonoBehaviour {
 	Transform SearchTarget()
 	{
 		Collider newTarget = null;
-		float radius = transform.FindChild ("Range").transform.localScale.z*.5f*.5f;
-		//		GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-		//		go.transform.localScale = Vector3 (radius, radius, radius);
+		float radius = transform.FindChild ("Range").transform.localScale.z*.6f*.5f;
 		print (radius);
 
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
@@ -69,22 +67,20 @@ public class TowerTargeting_SniperTower1 : MonoBehaviour {
 
 	void customLookAt()
 	{
-		Vector3 defaultBase = gattlingBase.transform.eulerAngles;
-		gattlingBase.transform.LookAt (target);
-		gattlingBase.transform.eulerAngles = new Vector3 (defaultBase.x, gattlingBase.transform.eulerAngles.y, defaultBase.z);
+		Vector3 defaultBase = sniperBase.transform.eulerAngles;
+		sniperBase.transform.LookAt (target);
+		sniperBase.transform.eulerAngles = new Vector3 (defaultBase.x, sniperBase.transform.eulerAngles.y, defaultBase.z);
 
-		gattlingGun.transform.LookAt (target);
-		gattlingGun.transform.eulerAngles = gattlingGun.transform.eulerAngles + 180f * Vector3.up;
-		gattlingGun.transform.eulerAngles = new Vector3 (-gattlingGun.transform.eulerAngles.x, gattlingGun.transform.eulerAngles.y, gattlingGun.transform.eulerAngles.z);
+		sniperGun.transform.LookAt (target);
+		sniperGun.transform.eulerAngles = sniperGun.transform.eulerAngles + 180f * Vector3.up;
+		sniperGun.transform.eulerAngles = new Vector3 (-sniperGun.transform.eulerAngles.x, sniperGun.transform.eulerAngles.y, sniperGun.transform.eulerAngles.z);
 	}
 
 	IEnumerator shoot()
 	{
 		yield return new WaitForSeconds(.1f);
-		barrel.transform.Rotate (0,0,360*Time.deltaTime);
 		GameObject bullet = (GameObject)Instantiate(bulletPrefab, barrel.transform.position, Quaternion.identity);
 		bullet.transform.LookAt (target);
-		bullet.GetComponent<Rigidbody>().AddForce(barrel.transform.up * 1000);
 
 		if(target == null){
 			yield return null;
