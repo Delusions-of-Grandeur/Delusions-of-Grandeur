@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3387168}
   - 135: {fileID: 13532938}
   - 23: {fileID: 2346748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   - 95: {fileID: 9599902}
   - 114: {fileID: 11459212}
   - 64: {fileID: 6435344}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GatlingTower Lvl 2
   m_TagString: GatlingTower2
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   - 33: {fileID: 3361874}
   - 23: {fileID: 2373006}
   - 64: {fileID: 6479814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tower_RotateY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - 4: {fileID: 494650}
   - 33: {fileID: 3317072}
   - 23: {fileID: 2309780}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tower_RotateZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - 4: {fileID: 491264}
   - 33: {fileID: 3302198}
   - 23: {fileID: 2348298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tower_RotateX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - 4: {fileID: 431182}
   - 33: {fileID: 3302138}
   - 23: {fileID: 2387576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tower_RotateX (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - 4: {fileID: 442750}
   - 33: {fileID: 3332862}
   - 23: {fileID: 2317848}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tower_RotateZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UFO: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  firing: 0
+  bulletPrefab: {fileID: 100000, guid: 9589d148f7842d3499c5bdfb0cf72eea, type: 2}
+  gattlingBase: {fileID: 121168}
+  gattlingGun: {fileID: 182488}
+  gattlingGun2: {fileID: 184730}
+  barrel: {fileID: 195204}
+  barrel2: {fileID: 125602}
 --- !u!135 &13532938
 SphereCollider:
   m_ObjectHideFlags: 1

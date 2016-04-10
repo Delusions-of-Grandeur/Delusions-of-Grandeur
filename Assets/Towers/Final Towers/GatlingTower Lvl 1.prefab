@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3313638}
   - 23: {fileID: 2335646}
   - 64: {fileID: 6490610}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tower_RotateY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 4: {fileID: 458494}
   - 33: {fileID: 3393568}
   - 23: {fileID: 2310268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tower_RotateZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 33: {fileID: 3364054}
   - 135: {fileID: 13580762}
   - 23: {fileID: 2387400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - 4: {fileID: 407806}
   - 33: {fileID: 3395010}
   - 23: {fileID: 2302968}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tower_RotateX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - 95: {fileID: 9569072}
   - 114: {fileID: 11462886}
   - 64: {fileID: 6451738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GatlingTower Lvl 1
   m_TagString: GatlingTower1
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185694}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -372,8 +372,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UFO: {fileID: 0}
+  firing: 0
   bulletPrefab: {fileID: 100000, guid: 9589d148f7842d3499c5bdfb0cf72eea, type: 2}
-  gattling: {fileID: 192510}
+  gattlingBase: {fileID: 121190}
+  gattlingGun: {fileID: 192510}
+  barrel: {fileID: 159460}
 --- !u!135 &13580762
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -384,7 +387,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.00001
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:

@@ -5,31 +5,45 @@ public class TowerTargeting_GatlingTower1 : MonoBehaviour {
 
 	public GameObject UFO;
 	Transform target;
+	Vector3 lastSpotToLook;
 
-	private bool firing = false;
+	public bool firing = false;
 	public GameObject bulletPrefab;
-	public GameObject gattling;
-
+	public GameObject gattlingBase;
+	public GameObject gattlingGun;
+	public GameObject barrel;
 
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		SearchTarget ();
+		
+		target = SearchTarget ();
+
+		print (target);
 		if(target != null){
-			Vector3 newPosition = gattling.transform.position - target.position;
-			gattling.transform.LookAt (newPosition);
-			StartCoroutine(shoot ());
+			print ("in range");
+
+			customLookAt ();
+			firing = true;
+			StartCoroutine("shoot");
+		} else {
+			print ("not in range");
+			firing = false;
+			StopCoroutine("shoot");
 		}
 	}
 
-	void SearchTarget()
+	Transform SearchTarget()
 	{
 		Collider newTarget = null;
-		float radius = transform.FindChild ("Range").transform.localScale.z;
+		float radius = transform.FindChild ("Range").transform.localScale.z*.5f*.5f;
+//		GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+//		go.transform.localScale = Vector3 (radius, radius, radius);
+		print (radius);
 
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 		Collider[] enemiesColliders = null;
@@ -49,20 +63,31 @@ public class TowerTargeting_GatlingTower1 : MonoBehaviour {
 			}
 		}
 
-		if(newTarget == null){
-			target = null;
-		} else {
-			target = newTarget.transform;
-		}
+		return newTarget == null ? null : newTarget.transform;
 
+	}
+
+	void customLookAt()
+	{
+		Vector3 defaultBase = gattlingBase.transform.eulerAngles;
+		gattlingBase.transform.LookAt (target);
+		gattlingBase.transform.eulerAngles = new Vector3 (defaultBase.x, gattlingBase.transform.eulerAngles.y, defaultBase.z);
+
+		gattlingGun.transform.LookAt (target);
+		gattlingGun.transform.eulerAngles = gattlingGun.transform.eulerAngles + 180f * Vector3.up;
+		gattlingGun.transform.eulerAngles = new Vector3 (-gattlingGun.transform.eulerAngles.x, gattlingGun.transform.eulerAngles.y, gattlingGun.transform.eulerAngles.z);
 	}
 
 	IEnumerator shoot()
 	{
-		print ("enter");
 		yield return new WaitForSeconds(.1f);
-		GameObject bullet = (GameObject)Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-		bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
-		firing = false;
+		barrel.transform.Rotate (0,0,360*Time.deltaTime);
+		GameObject bullet = (GameObject)Instantiate(bulletPrefab, barrel.transform.position, Quaternion.identity);
+		bullet.transform.LookAt (target);
+		bullet.GetComponent<Rigidbody>().AddForce(barrel.transform.up * 1000);
+
+		if(target == null){
+			yield return null;
+		}
 	}
 }

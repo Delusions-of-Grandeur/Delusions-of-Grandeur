@@ -13,7 +13,7 @@ GameObject:
   - 95: {fileID: 9526696}
   - 114: {fileID: 11428822}
   - 64: {fileID: 6401210}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SniperTower Lvl 2
   m_TagString: SniperTower2
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 423410}
   - 95: {fileID: 9594746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CyberTankRed (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 33: {fileID: 3365722}
   - 135: {fileID: 13517114}
   - 23: {fileID: 2302992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 420764}
   - 95: {fileID: 9593338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CyberTankRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - 4: {fileID: 499760}
   - 33: {fileID: 3338614}
   - 23: {fileID: 2318944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - 4: {fileID: 408536}
   - 33: {fileID: 3384760}
   - 23: {fileID: 2377122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - 4: {fileID: 485020}
   - 33: {fileID: 3311880}
   - 23: {fileID: 2396606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Line26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - 33: {fileID: 3304240}
   - 23: {fileID: 2382114}
   - 64: {fileID: 6432802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tower_RotateY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - 4: {fileID: 408568}
   - 33: {fileID: 3399414}
   - 23: {fileID: 2398718}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Line24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - 4: {fileID: 454616}
   - 33: {fileID: 3358794}
   - 23: {fileID: 2361786}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Line26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 431178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Group10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - 4: {fileID: 419236}
   - 33: {fileID: 3343630}
   - 23: {fileID: 2369100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Line24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - 4: {fileID: 488604}
   - 33: {fileID: 3355208}
   - 23: {fileID: 2353300}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 126854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 22, y: 22, z: 22}
+  m_LocalScale: {x: 28, y: 28, z: 28}
   m_Children: []
   m_Father: {fileID: 494320}
   m_RootOrder: 3
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UFO: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 100000, guid: 9589d148f7842d3499c5bdfb0cf72eea, type: 2}
 --- !u!135 &13517114
 SphereCollider:
   m_ObjectHideFlags: 1
