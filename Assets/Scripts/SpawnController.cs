@@ -22,7 +22,7 @@ public class SpawnController : MonoBehaviour {
         round = 0;
         active = false;
 
-        InvokeRepeating("waveController", 0.01f, 5);
+        InvokeRepeating("waveController", 0.01f, 10);
     }
 	
 	// Update is called once per frame
@@ -43,7 +43,7 @@ public class SpawnController : MonoBehaviour {
         {
             if(numAlive == 0)
             {
-                Debug.Log(" End round ");
+                Debug.Log("End round ");
                 active = false;
                 round++;
             }
@@ -63,21 +63,30 @@ public class SpawnController : MonoBehaviour {
     void startWave()
     {
         Debug.Log("Starting wave: " + round);
-        for(int i = 0; i < (3 + 2 * round); i++)
+        if (round % 3 == 0 && round > 0)
         {
-            Invoke("Spawn", Random.Range(0, 4));
+            for(int i = 0; i < round / 3; i++)
+            {
+                Invoke("SpawnLarge", Random.Range(0, 9));
+            }
+        }
+        else
+        {
+            for (int i = 0; i < (6 + 2 * round); i++)
+            {
+                Invoke("SpawnSmall", Random.Range(0, 9));
+            }
         }
     }
 
-    void Spawn()
+    public void SpawnSmall()
     {
-        SpawnEnemy();
-        SpawnEnemy();
+        Instantiate(EnemySmall, RandomCircle(objs[Random.Range(0, top)].GetComponent<Transform>().position, 4), Quaternion.identity);
+        numAlive++;
     }
-
-    public void SpawnEnemy()
+    public void SpawnLarge()
     {
-        Instantiate(EnemySmall, RandomCircle(objs[Random.Range(0, top + 1)].GetComponent<Transform>().position, 4), Quaternion.identity);
+        Instantiate(EnemyLarge, RandomCircle(objs[Random.Range(0, top)].GetComponent<Transform>().position, 4), Quaternion.identity);
         numAlive++;
     }
 }

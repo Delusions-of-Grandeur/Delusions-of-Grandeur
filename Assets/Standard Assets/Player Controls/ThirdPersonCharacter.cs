@@ -212,7 +212,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				//and if it's higher than our turn threshold
 				if(Mathf.Abs(lookAngle) > autoTurnThreshold)
 				{
-					print("Move to camera");
+				//	print("Move to camera");
 					//correct the character's rotation
 					m_TurnAmount += lookAngle * autoTurnSpeed * .001f;
 				}

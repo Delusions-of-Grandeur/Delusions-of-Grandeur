@@ -69,7 +69,7 @@ function Update ()
 
 	if(!playerScript.aim) //if the build panel is open...
 	{
-		print("Building mode");
+	//	print("Building mode");
 		//create a ray, and shoot it from the mouse position, forward into the game
 		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		var hit : RaycastHit;

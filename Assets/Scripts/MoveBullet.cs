@@ -15,7 +15,7 @@ public class MoveBullet : MonoBehaviour {
 		transform.Translate(0, 0, speed);
 	}
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter()
     {
         Destroy(gameObject); //Delete the bullet 
     }

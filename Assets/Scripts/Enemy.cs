@@ -5,9 +5,9 @@ namespace SpawningFramework
 {
     public class Enemy : MonoBehaviour
     {
-
         public float MaxHealth;
         float health;
+
         StateMachine sm;
 
         [HideInInspector]
@@ -22,23 +22,19 @@ namespace SpawningFramework
         {
             health = MaxHealth;
             alive = true;
-//            InvokeRepeating("move", 0.01f, .2f);
-
         }
 
-        void move()
+        public void life()
         {
-            transform.Translate(0, 0.025f, 0);
+            Debug.Log(health);
         }
 
-        void OnTriggerEnter(Collider other)
+        public virtual void die()
         {
-            Debug.Log(other.tag);
-            if (other.tag == ("Bullet"))
-            {
-                Hurt(34);
-//              Destroy(other.gameObject);        
-            }
+            alive = false;
+            SpawnController.numAlive--;
+            Destroy(this.gameObject);
+            Destroy(this);
         }
 
         /// Hurts the enemy and returns if it dies or not
@@ -51,10 +47,7 @@ namespace SpawningFramework
 
             if (health < 0.1)
             {
-                alive = false;
-                SpawnController.numAlive--;
-                Destroy(this.gameObject);
-                Destroy(this);
+                die();
                 return true;
             }
 
@@ -63,6 +56,7 @@ namespace SpawningFramework
 
 
     }
+
 }
 
 public class StateMachine
@@ -86,7 +80,7 @@ public class StateMachine
             case 3:     // Die
 
                 break;
-            case 4:     
+            case 4:
                 break;
         }
     }
