@@ -69,13 +69,12 @@ function Update ()
 
 	if(!playerScript.aim) //if the build panel is open...
 	{
-	//	print("Building mode");
 		//create a ray, and shoot it from the mouse position, forward into the game
 		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		var hit : RaycastHit;
 		if(Physics.Raycast (ray, hit, 1000, placementLayerMask)) //if the RAY hits anything on right LAYER, within 1000 meters, save the hit item in variable "HIT", then...
 		{
-
+			print("Building mode");
 			if(lastHitObj) //if we had previously hit an object...
 			{
 				lastHitObj.GetComponent.<Renderer>().material = originalMat; //visually de-select that object
@@ -92,7 +91,7 @@ function Update ()
 				if(functionIndex == 0){
 					var tempStructure : GameObject = Instantiate(transparentStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
 					tempStructure.transform.parent = lastHitObj.transform;
-					tempStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
+					//tempStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 
 					if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
 						Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
@@ -134,7 +133,7 @@ function Update ()
 //				//drop the chosen structure exactly at the tile's position, and rotation of zero. See how the "index" comes in handy here? :)
 				var newStructure : GameObject = Instantiate(allStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
 				newStructure.transform.parent = lastHitObj.transform;
-				newStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
+				//newStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 				//set this tile's tag to "Taken", so we can't double-place structures
 				lastHitObj.tag = "PlacementPlane_Taken";
 			} else if (lastHitObj.tag == "PlacementPlane_Taken" && functionIndex == 1){
@@ -143,17 +142,17 @@ function Update ()
 			} else if (lastHitObj.tag == "PlacementPlane_Taken" && functionIndex == 2){
 				print("test");
 				print(lastHitObj.transform.GetChild(0).tag);
-				if(lastHitObj.transform.GetChild(0).gameObject.tag == "Cube_Tower_1"){
-					print("cube");
+				if(lastHitObj.transform.GetChild(0).gameObject.tag == "GatlingTower1"){
+					print("gatling");
 					Destroy(lastHitObj.transform.GetChild(0).gameObject);
 					var upgradeCubeStructure : GameObject = Instantiate(allStructures[1], lastHitObj.transform.position, Quaternion.identity);
-					upgradeCubeStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
+					//upgradeCubeStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 					upgradeCubeStructure.transform.parent = lastHitObj.transform;
-				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "Sphere_Tower_1"){
-					print("sphere");
+				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "SniperTower1"){
+					print("sniper");
 					Destroy(lastHitObj.transform.GetChild(0).gameObject);
 					var upgradeSphereStructure : GameObject = Instantiate(allStructures[3], lastHitObj.transform.position, Quaternion.identity);
-					upgradeSphereStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
+					//upgradeSphereStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 					upgradeSphereStructure.transform.parent = lastHitObj.transform;
 				}
 			}
