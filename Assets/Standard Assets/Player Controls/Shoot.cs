@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour {
 
@@ -12,8 +11,6 @@ public class Shoot : MonoBehaviour {
 	private Vector3 mousePos;
 	private float zDistance = 100f;
 
-    public Text ammoText;
-    public int ammo = 30;
 
 	void FixedUpdate ()
  	{
@@ -21,14 +18,13 @@ public class Shoot : MonoBehaviour {
 		UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl playerScript = thePlayer.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl>();
 
 		if (playerScript.aim) {
-			if(Input.GetKey(KeyCode.Mouse0) && counter > delayTime && ammo > 0)
+			if(Input.GetKey(KeyCode.Mouse0) && counter > delayTime)
 			{
 				mousePos = Input.mousePosition;
 				transform.LookAt (Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, zDistance)));
 				Instantiate(bullet, transform.position, transform.rotation);
 				GetComponent<AudioSource>().Play();
 				counter = 0;
-                ammo--;
 
 				RaycastHit hit;
 				Ray ray = new Ray(transform.position, transform.forward);
@@ -41,9 +37,4 @@ public class Shoot : MonoBehaviour {
 		}
 
 	}
-
-    void Update()
-    {
-        ammoText.text = "Ammo: " + ammo.ToString();
-    }
 }

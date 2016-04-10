@@ -29,20 +29,24 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		Animator anim;
 
+		public float normalZ;
+		public float aimZ;
+		public float aimX;
+
 		//Ik stuff
 		[SerializeField] public IK ik;
 		[System.Serializable] public class IK
 		{
 			public Transform spine; //the bone where we rotate the body of our character from
 			//The Z/x/y values, doesn't really matter the values here since we ovveride them depending on the weapon
-			public float aimingZ = 213.46f; 
+			public float aimingZ = 213.46f;
 			public float aimingX = -65.93f;
 			public float aimingY = 20.1f;
 			//The point in the ray we do from our camera, basically how far the character looks
-			public float point = 30; 
+			public float point = 30;
 
-			public bool DebugAim; 
-			//Help us debug the aim, basically makes it possible to change the current values 
+			public bool DebugAim;
+			//Help us debug the aim, basically makes it possible to change the current values
 			//on runtime since we are hardcoding them
 		}
 
@@ -62,8 +66,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			// get the third person character ( this should never be null due to require component )
 			m_Character = GetComponent<ThirdPersonCharacter> ();
-
 			anim = GetComponent<Animator> ();
+
+
+			normalZ = -1.2f;
+			aimZ = 0.0f;
+			aimX = 0.1f;
 		}
 
 
@@ -80,13 +88,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void LateUpdate ()
 		{
-			
-			//our aiming weight smoothly becomes 0 or 1 depending if we are aiming or not, 
+
+			//our aiming weight smoothly becomes 0 or 1 depending if we are aiming or not,
+
 			aimingWeight = Mathf.MoveTowards (aimingWeight, (aim) ? 1.0f : 0.0f, Time.deltaTime * 5);
 
 			//the normal and aiming state of the camera, basically how much close to the player it is
-			Vector3 normalState = new Vector3 (0, 0, -2f);
-			Vector3 aimingState = new Vector3(0,0,-0.5f);
+			Vector3 normalState = new Vector3 (0, 0, normalZ);
+			Vector3 aimingState = new Vector3(aimX,0,aimZ);
 
 			//and that is lerped depending on t = aimigweight
 			Vector3 pos = Vector3.Lerp (normalState, aimingState, aimingWeight);
@@ -96,21 +105,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (aim) { //if we aim
 				//pass the new rotation to the IK bone
 				Vector3 eulerAngleOffset = Vector3.zero;
-				eulerAngleOffset = new Vector3 (ik.aimingX, ik.aimingY, ik.aimingZ);
+				//eulerAngleOffset = new Vector3 (ik.aimingX, ik.aimingY, ik.aimingZ);
 
 				//do a ray from the center of the camera and forward
 				Ray ray = new Ray (m_Cam.position, m_CamForward);
 
 				//find where the character should look
-				Vector3 lookPosition = ray.GetPoint (ik.point);
+				//Vector3 lookPosition = ray.GetPoint (ik.point);
 
 				//and apply the rotation to the bone
-				ik.spine.LookAt (lookPosition);
-				ik.spine.Rotate (eulerAngleOffset, Space.Self);
+				//ik.spine.LookAt (lookPosition);
+				//ik.spine.Rotate (eulerAngleOffset, Space.Self);
 			}
 		}
-
-	
 
 		// Fixed update is called in sync with physics
 		private void FixedUpdate ()
