@@ -40,7 +40,7 @@ public class TowerTargeting_SniperTower1 : MonoBehaviour {
 	Transform SearchTarget()
 	{
 		Collider newTarget = null;
-		float radius = transform.FindChild ("Range").transform.localScale.z*.6f*.5f;
+		float radius = transform.FindChild ("Range").transform.localScale.z*.5f*.5f;
 		print (radius);
 
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
@@ -72,15 +72,15 @@ public class TowerTargeting_SniperTower1 : MonoBehaviour {
 		sniperBase.transform.eulerAngles = new Vector3 (defaultBase.x, sniperBase.transform.eulerAngles.y, defaultBase.z);
 
 		sniperGun.transform.LookAt (target);
-		sniperGun.transform.eulerAngles = sniperGun.transform.eulerAngles + 180f * Vector3.up;
-		sniperGun.transform.eulerAngles = new Vector3 (-sniperGun.transform.eulerAngles.x, sniperGun.transform.eulerAngles.y, sniperGun.transform.eulerAngles.z);
 	}
 
 	IEnumerator shoot()
 	{
-		yield return new WaitForSeconds(.1f);
-		GameObject bullet = (GameObject)Instantiate(bulletPrefab, barrel.transform.position, Quaternion.identity);
+		yield return new WaitForSeconds(.75f);
+		GameObject bullet = (GameObject)Instantiate(bulletPrefab, new Vector3(barrel.transform.position.x+.1f,barrel.transform.position.y,barrel.transform.position.z) , Quaternion.identity);
 		bullet.transform.LookAt (target);
+		GameObject bullet2 = (GameObject)Instantiate(bulletPrefab, new Vector3(barrel.transform.position.x-.1f,barrel.transform.position.y,barrel.transform.position.z) , Quaternion.identity);
+		bullet2.transform.LookAt (target);
 
 		if(target == null){
 			yield return null;

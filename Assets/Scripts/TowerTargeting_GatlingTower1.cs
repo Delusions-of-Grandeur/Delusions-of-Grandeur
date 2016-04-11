@@ -41,9 +41,6 @@ public class TowerTargeting_GatlingTower1 : MonoBehaviour {
 	{
 		Collider newTarget = null;
 		float radius = transform.FindChild ("Range").transform.localScale.z*.5f*.5f;
-//		GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-//		go.transform.localScale = Vector3 (radius, radius, radius);
-		print (radius);
 
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 		Collider[] enemiesColliders = null;

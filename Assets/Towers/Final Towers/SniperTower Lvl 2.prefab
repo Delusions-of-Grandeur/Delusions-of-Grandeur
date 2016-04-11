@@ -13,6 +13,7 @@ GameObject:
   - 95: {fileID: 9526696}
   - 114: {fileID: 11428822}
   - 64: {fileID: 6401210}
+  - 208: {fileID: 20859068}
   m_Layer: 9
   m_Name: SniperTower Lvl 2
   m_TagString: SniperTower2
@@ -22,7 +23,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &106750
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -56,7 +57,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &134398
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -241,7 +242,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153810}
   m_LocalRotation: {x: -0.7071068, y: 0.0000003371748, z: 0.0000003371748, w: 0.7071068}
-  m_LocalPosition: {x: 0.0000017262715, y: 0.161, z: 0.08424718}
+  m_LocalPosition: {x: 0, y: 0.054, z: -0.046}
   m_LocalScale: {x: 0.079730354, y: 0.051427275, z: 0.10754608}
   m_Children: []
   m_Father: {fileID: 420764}
@@ -265,30 +266,31 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134398}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -0.04, y: 2.27, z: 0.92}
+  m_LocalPosition: {x: -0.04000028, y: 2.04, z: 0.339}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 488604}
   - {fileID: 431178}
   - {fileID: 408568}
   - {fileID: 454616}
-  m_Father: {fileID: 494320}
-  m_RootOrder: 2
+  - {fileID: 423410}
+  m_Father: {fileID: 444688}
+  m_RootOrder: 0
 --- !u!4 &423410
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106750}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -0.04, y: 2.61, z: 0.92}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.05, z: -0.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408536}
   - {fileID: 419236}
   - {fileID: 485020}
-  m_Father: {fileID: 494320}
-  m_RootOrder: 1
+  m_Father: {fileID: 420764}
+  m_RootOrder: 4
 --- !u!4 &431178
 Transform:
   m_ObjectHideFlags: 1
@@ -296,7 +298,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164454}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0000016644689, y: 0.105, z: 0.146}
+  m_LocalPosition: {x: 0, y: -0.002, z: 0.016}
   m_LocalScale: {x: 0.048298813, y: 0.051427275, z: 0.09865734}
   m_Children:
   - {fileID: 499760}
@@ -311,7 +313,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 1.1552045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 420764}
   m_Father: {fileID: 494320}
   m_RootOrder: 0
 --- !u!4 &454616
@@ -321,7 +324,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163550}
   m_LocalRotation: {x: 0.00000005760117, y: -0.70710665, z: 0.000000057601152, w: 0.7071069}
-  m_LocalPosition: {x: 0.0000017880743, y: 0.19070512, z: 0.2760068}
+  m_LocalPosition: {x: 0, y: 0.084, z: 0.146}
   m_LocalScale: {x: 0.058798153, y: 0.05879815, z: 0.058798153}
   m_Children: []
   m_Father: {fileID: 420764}
@@ -345,7 +348,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182442}
   m_LocalRotation: {x: 0.00000022208388, y: 0.00000022208388, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.000001849877, y: 0.18838021, z: 0.3433467}
+  m_LocalPosition: {x: 0, y: 0.082, z: 0.213}
   m_LocalScale: {x: 0.079730354, y: 0.079730354, z: 0.079730354}
   m_Children: []
   m_Father: {fileID: 420764}
@@ -361,7 +364,7 @@ Transform:
   m_LocalScale: {x: 28, y: 28, z: 28}
   m_Children: []
   m_Father: {fileID: 494320}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!4 &494320
 Transform:
   m_ObjectHideFlags: 1
@@ -373,8 +376,6 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 444688}
-  - {fileID: 423410}
-  - {fileID: 420764}
   - {fileID: 491900}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -807,7 +808,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UFO: {fileID: 0}
+  firing: 0
   bulletPrefab: {fileID: 100000, guid: 9589d148f7842d3499c5bdfb0cf72eea, type: 2}
+  sniperBase: {fileID: 153584}
+  sniperGun: {fileID: 134398}
+  barrel: {fileID: 182442}
+  barrel2: {fileID: 150836}
 --- !u!135 &13517114
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -820,6 +826,21 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.00001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &20859068
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101790}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.233, y: 0.57600003, z: 2.233}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
