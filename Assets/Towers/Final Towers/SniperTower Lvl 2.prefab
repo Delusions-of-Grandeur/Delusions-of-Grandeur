@@ -809,7 +809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UFO: {fileID: 0}
   firing: 0
-  bulletPrefab: {fileID: 100000, guid: 9589d148f7842d3499c5bdfb0cf72eea, type: 2}
+  bulletPrefab: {fileID: 100000, guid: e7793a98dcbe24e47b3b5b180e661ca0, type: 2}
   sniperBase: {fileID: 153584}
   sniperGun: {fileID: 134398}
   barrel: {fileID: 182442}

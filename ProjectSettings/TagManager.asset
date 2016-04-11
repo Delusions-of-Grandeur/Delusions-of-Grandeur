@@ -19,39 +19,45 @@ TagManager:
   - Cube_Tower_1
   - Sphere_Tower_2
   - PlacementPlane_Open
+  - GatlingTower2
+  - SniperTower2
+  - SniperTower1
+  - GatlingTower1
+  - BulletGatling
+  - BulletSniper
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  -
+  - 
   - Water
   - UI
-  -
-  -
+  - 
+  - 
   - placementLayerMask
   - Tower
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0

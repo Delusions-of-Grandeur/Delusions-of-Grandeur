@@ -500,8 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UFO: {fileID: 0}
   firing: 0
-  bulletPrefab: {fileID: 100000, guid: 9589d148f7842d3499c5bdfb0cf72eea, type: 2}
-  wholeStruct: {fileID: 120324}
+  bulletPrefab: {fileID: 100000, guid: 4c9cfc02ba1724f60937f98dba8583a7, type: 2}
   gattlingBase: {fileID: 121168}
   gattlingGun: {fileID: 182488}
   gattlingGun2: {fileID: 184730}
