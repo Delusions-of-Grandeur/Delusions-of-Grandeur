@@ -15,9 +15,9 @@ public class MoveBullet : MonoBehaviour {
 		transform.Translate(0, 0, speed);
 	}
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
-		if(!other.transform.gameObject.layer.Equals("Tower")){
+		if(!other.transform.gameObject.layer.Equals("Tower") || other.tag != "Player"){
 			Destroy(gameObject); //Delete the bullet 
 		}
     }

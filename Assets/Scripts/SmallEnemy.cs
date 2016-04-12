@@ -8,7 +8,7 @@ namespace SpawningFramework
         void OnTriggerEnter(Collider other)
         {
             Debug.Log(other.tag);
-            if (other.tag == ("Player"))
+            if (other.tag == ("Bullet"))
             {
                 Hurt(53);
                 //              Destroy(other.gameObject);        
