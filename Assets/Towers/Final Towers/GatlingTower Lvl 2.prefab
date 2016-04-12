@@ -31,6 +31,7 @@ GameObject:
   - 95: {fileID: 9599902}
   - 114: {fileID: 11459212}
   - 64: {fileID: 6435344}
+  - 208: {fileID: 20851260}
   m_Layer: 9
   m_Name: GatlingTower Lvl 2
   m_TagString: GatlingTower2
@@ -499,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UFO: {fileID: 0}
   firing: 0
-  bulletPrefab: {fileID: 100000, guid: 9589d148f7842d3499c5bdfb0cf72eea, type: 2}
+  bulletPrefab: {fileID: 100000, guid: 4c9cfc02ba1724f60937f98dba8583a7, type: 2}
   gattlingBase: {fileID: 121168}
   gattlingGun: {fileID: 182488}
   gattlingGun2: {fileID: 184730}
@@ -517,6 +518,21 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.00001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &20851260
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120324}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.233, y: 0.57600003, z: 2.233}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
