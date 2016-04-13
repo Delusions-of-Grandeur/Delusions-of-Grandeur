@@ -75,11 +75,7 @@ public class StateMachine
         switch (currentState)
         {
             case 0:     // Default state
-<<<<<<< 28236723540018cfa665178cc65707e5de72cf01
-			
-=======
 //			nav.destination = new Vector3(0,0,0);
->>>>>>> nav works also fixed tower size
 
                 break;
             case 1:     // Attack
