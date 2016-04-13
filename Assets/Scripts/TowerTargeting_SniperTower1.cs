@@ -36,7 +36,7 @@ public class TowerTargeting_SniperTower1 : MonoBehaviour {
 	Transform SearchTarget()
 	{
 		Collider newTarget = null;
-		float radius = transform.FindChild ("Range").transform.localScale.z*.5f*.5f;
+		float radius = transform.FindChild ("Range").transform.localScale.z*1.75f*.5f;
 
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 		Collider[] enemiesColliders = null;
