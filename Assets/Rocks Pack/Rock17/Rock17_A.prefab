@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 64: {fileID: 6400000}
+  - 208: {fileID: 20850108}
   m_Layer: 0
   m_Name: Rock17_A
   m_TagString: Untagged
@@ -27,9 +28,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.22878796, y: 0.85343486, z: 0.026934532, w: -0.46752506}
+  m_LocalPosition: {x: 26.986633, y: -100.59827, z: -154.95099}
+  m_LocalScale: {x: 1.1965029, y: 1.1965028, z: 1.1965028}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -90,6 +91,21 @@ MeshCollider:
 --- !u!1002 &6400001
 EditorExtensionImpl:
   serializedVersion: 6
+--- !u!208 &20850108
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 8.602, y: 4.622, z: 9.580001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 2.8030002, y: 2.8500001, z: 0.32700002}
+  m_TimeToStationary: 0.5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

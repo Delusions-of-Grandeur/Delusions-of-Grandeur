@@ -8,7 +8,6 @@ namespace SpawningFramework
         public float MaxHealth;
         float health;
 		private NavMeshAgent nav;
-		public GameObject goal;
 
         StateMachine sm;
 
@@ -17,10 +16,8 @@ namespace SpawningFramework
 
         void Update()
         {
-//			nav.speed = 2f;
-//			nav.destination = transform.Find("Ship").position;
+			nav.destination = GameObject.Find("flying Disk landed").transform.position;
 			//avoidance logic
-			nav.destination = goal.transform.position; 
         }
 
         /// Called when this enemy has been spawned
