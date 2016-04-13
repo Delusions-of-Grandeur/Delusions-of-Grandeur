@@ -16,6 +16,9 @@ namespace SpawningFramework
 
         void Update()
         {
+			nav.speed = 2f;
+			nav.destination = transform.Find("Ship").position;
+			//avoidance logic
         }
 
         /// Called when this enemy has been spawned
@@ -70,7 +73,7 @@ public class StateMachine
         switch (currentState)
         {
             case 0:     // Default state
-			nav.destination = new Vector3(0,0,0);
+			
 
                 break;
             case 1:     // Attack
