@@ -23,16 +23,11 @@ public class TowerTargeting_SniperTower2 : MonoBehaviour {
 	void Update () {
 
 		target = SearchTarget ();
-
-		print (target);
 		if(target != null){
-			print ("in range");
-
 			customLookAt ();
 			firing = true;
 			StartCoroutine("shoot");
 		} else {
-			print ("not in range");
 			firing = false;
 			StopCoroutine("shoot");
 		}
@@ -42,7 +37,6 @@ public class TowerTargeting_SniperTower2 : MonoBehaviour {
 	{
 		Collider newTarget = null;
 		float radius = transform.FindChild ("Range").transform.localScale.z*.6f*.5f;
-		print (radius);
 
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 		Collider[] enemiesColliders = null;

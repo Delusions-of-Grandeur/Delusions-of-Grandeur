@@ -22,16 +22,11 @@ public class TowerTargeting_GatlingTower1 : MonoBehaviour {
 	void Update () {
 		
 		target = SearchTarget ();
-
-		print (target);
 		if(target != null){
-			print ("in range");
-
 			customLookAt ();
 			firing = true;
 			StartCoroutine("shoot");
 		} else {
-			print ("not in range");
 			firing = false;
 			StopCoroutine("shoot");
 		}

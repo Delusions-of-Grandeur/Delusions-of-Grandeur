@@ -10,6 +10,7 @@ private var hoverMat : Material;
 var placementLayerMask : LayerMask;
 private var originalMat : Material;
 private var beforeLastHitObj : GameObject;
+private var beforeLastHitObjUpgrade : GameObject;
 private var lastHitObj : GameObject;
 var allMats : Material[];
 //
@@ -29,7 +30,6 @@ function Start()
 	//reset the structure index, refresh the GUI
 	structureIndex = 0;
 	hoverMat = allMats[0];
-
 
 }
 
@@ -51,6 +51,18 @@ function Update ()
 	if(Input.GetKeyDown(KeyCode.B)){ // build
 		functionIndex = 0;
 		hoverMat = allMats[0];
+
+		if(beforeLastHitObjUpgrade != null ){
+			for (var child : Transform in beforeLastHitObjUpgrade.transform){
+	       		if (child.gameObject.name == "Transparent GatlingTower Lvl 2(Clone)"){
+	        		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent GatlingTower Lvl 2(Clone)").gameObject);
+	       		}
+	      		if (child.gameObject.name == "Transparent SniperTower Lvl 2(Clone)"){
+	         		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent SniperTower Lvl 2(Clone)").gameObject);
+	     		}
+	  		}
+   		}
+		beforeLastHitObjUpgrade = null;
 	} else if(Input.GetKeyDown(KeyCode.N)){ // Sell
 		functionIndex = 1;
 		hoverMat = allMats[1];
@@ -58,6 +70,18 @@ function Update ()
 			Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
 		}
 		beforeLastHitObj = null;
+
+		if(beforeLastHitObjUpgrade != null ){
+			for (var child : Transform in beforeLastHitObjUpgrade.transform){
+	       		if (child.gameObject.name == "Transparent GatlingTower Lvl 2(Clone)"){
+	        		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent GatlingTower Lvl 2(Clone)").gameObject);
+	       		}
+	      		if (child.gameObject.name == "Transparent SniperTower Lvl 2(Clone)"){
+	         		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent SniperTower Lvl 2(Clone)").gameObject);
+	     		}
+	  		}
+   		}
+		beforeLastHitObjUpgrade = null;
 	} else if(Input.GetKeyDown(KeyCode.U)){ // Upgrade
 		functionIndex = 2;
 		hoverMat = allMats[2];
@@ -69,12 +93,13 @@ function Update ()
 
 	if(!playerScript.aim) //if the build panel is open...
 	{
+		
 		//create a ray, and shoot it from the mouse position, forward into the game
 		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		var hit : RaycastHit;
 		if(Physics.Raycast (ray, hit, 1000, placementLayerMask)) //if the RAY hits anything on right LAYER, within 1000 meters, save the hit item in variable "HIT", then...
 		{
-			print("Building mode");
+//			print("Building mode");
 			if(lastHitObj) //if we had previously hit an object...
 			{
 				lastHitObj.GetComponent.<Renderer>().material = originalMat; //visually de-select that object
@@ -84,6 +109,17 @@ function Update ()
 
 			//adding transparent towers
 			if(lastHitObj.tag == "PlacementPlane_Open"){
+				if(beforeLastHitObjUpgrade != null ){
+					for (var child : Transform in beforeLastHitObjUpgrade.transform){
+			       		if (child.gameObject.name == "Transparent GatlingTower Lvl 2(Clone)"){
+			        		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent GatlingTower Lvl 2(Clone)").gameObject);
+			       		}
+			      		if (child.gameObject.name == "Transparent SniperTower Lvl 2(Clone)"){
+			         		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent SniperTower Lvl 2(Clone)").gameObject);
+			     		}
+			  		}
+   				}
+				beforeLastHitObjUpgrade = null;
 
 				originalMat = lastHitObj.GetComponent.<Renderer>().material; //store the new plane's starting material, so we can reset it later
 				lastHitObj.GetComponent.<Renderer>().material = hoverMat; //set the plane's material to the highlighted look
@@ -109,6 +145,30 @@ function Update ()
 					originalMat = lastHitObj.GetComponent.<Renderer>().material; //store the new plane's starting material, so we can reset it later
 					lastHitObj.GetComponent.<Renderer>().material = hoverMat; //set the plane's material to the highlighted look
 				}
+
+				if(functionIndex == 2){
+					var tempStructureUpgrade : GameObject;
+					if(lastHitObj.transform.GetChild(0).gameObject.tag == "GatlingTower1") {
+						tempStructureUpgrade = Instantiate(transparentStructures[1], lastHitObj.transform.position, Quaternion.identity);
+					} else {
+						tempStructureUpgrade = Instantiate(transparentStructures[3], lastHitObj.transform.position, Quaternion.identity);
+					}
+
+					tempStructureUpgrade.transform.parent = lastHitObj.transform;
+
+					print(beforeLastHitObjUpgrade);
+					if(beforeLastHitObjUpgrade != null ){
+						for (var child : Transform in beforeLastHitObjUpgrade.transform){
+				       		if (child.gameObject.name == "Transparent GatlingTower Lvl 2(Clone)"){
+				        		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent GatlingTower Lvl 2(Clone)").gameObject);
+				       		}
+				      		if (child.gameObject.name == "Transparent SniperTower Lvl 2(Clone)"){
+				         		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent SniperTower Lvl 2(Clone)").gameObject);
+				     		}
+				  		}
+   					}
+					beforeLastHitObjUpgrade = lastHitObj;
+				}
 			}
 		}
 		else //...if the raycast didn't hit anything (ie, the mouse moved outside the tiles) ...
@@ -123,6 +183,19 @@ function Update ()
 				Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
 				beforeLastHitObj = null;
 			}
+
+			if(beforeLastHitObjUpgrade != null ){
+				for (var child : Transform in beforeLastHitObjUpgrade.transform){
+		       		if (child.gameObject.name == "Transparent GatlingTower Lvl 2(Clone)"){
+		        		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent GatlingTower Lvl 2(Clone)").gameObject);
+		       		}
+		      		if (child.gameObject.name == "Transparent SniperTower Lvl 2(Clone)"){
+		         		Destroy(beforeLastHitObjUpgrade.transform.Find("Transparent SniperTower Lvl 2(Clone)").gameObject);
+		     		}
+		  		}
+   			}
+
+			beforeLastHitObjUpgrade = null;
 		}
 
 		//drop turrets on click
@@ -140,7 +213,6 @@ function Update ()
 				Destroy(lastHitObj.transform.GetChild(0).gameObject);
 				lastHitObj.tag = "PlacementPlane_Open";
 			} else if (lastHitObj.tag == "PlacementPlane_Taken" && functionIndex == 2){
-				print("test");
 				print(lastHitObj.transform.GetChild(0).tag);
 				if(lastHitObj.transform.GetChild(0).gameObject.tag == "GatlingTower1"){
 					print("gatling");
