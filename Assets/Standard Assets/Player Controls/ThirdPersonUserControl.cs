@@ -69,7 +69,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			anim = GetComponent<Animator> ();
 
 
-			normalZ = -1.2f;
+			normalZ = -1.6f;
 			aimZ = 0.0f;
 			aimX = 0.1f;
 		}
@@ -78,7 +78,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		private void Update ()
 		{
 			if (!m_Jump) {
-				m_Jump = CrossPlatformInputManager.GetButtonDown ("Jump");
+				// m_Jump = CrossPlatformInputManager.GetButtonDown ("Jump");
+				// print ("reload");
 			}
 			//then the aim bool is controlled by the right mouse click
 			if (Input.GetMouseButtonUp (1)) {
@@ -95,7 +96,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			//the normal and aiming state of the camera, basically how much close to the player it is
 			Vector3 normalState = new Vector3 (0, 0, normalZ);
-			Vector3 aimingState = new Vector3(aimX,0,aimZ);
+			Vector3 aimingState = new Vector3(0, 0, normalZ);
 
 			//and that is lerped depending on t = aimigweight
 			Vector3 pos = Vector3.Lerp (normalState, aimingState, aimingWeight);
