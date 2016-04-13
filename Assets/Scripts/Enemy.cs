@@ -7,6 +7,7 @@ namespace SpawningFramework
     {
         public float MaxHealth;
         float health;
+		private NavMeshAgent nav;
 
         StateMachine sm;
 
@@ -22,6 +23,7 @@ namespace SpawningFramework
         {
             health = MaxHealth;
             alive = true;
+			nav = GetComponent<NavMeshAgent>();
         }
 
         public void life()
@@ -68,7 +70,7 @@ public class StateMachine
         switch (currentState)
         {
             case 0:     // Default state
-                // call navigation torwards ship
+			nav.destination = new Vector3(0,0,0);
 
                 break;
             case 1:     // Attack
