@@ -8,6 +8,7 @@ namespace SpawningFramework
         public float MaxHealth;
         float health;
 		private NavMeshAgent nav;
+		public GameObject goal;
 
         StateMachine sm;
 
@@ -16,9 +17,10 @@ namespace SpawningFramework
 
         void Update()
         {
-			nav.speed = 2f;
-			nav.destination = transform.Find("Ship").position;
+//			nav.speed = 2f;
+//			nav.destination = transform.Find("Ship").position;
 			//avoidance logic
+			nav.destination = goal.transform.position; 
         }
 
         /// Called when this enemy has been spawned
@@ -73,7 +75,11 @@ public class StateMachine
         switch (currentState)
         {
             case 0:     // Default state
+<<<<<<< 28236723540018cfa665178cc65707e5de72cf01
 			
+=======
+//			nav.destination = new Vector3(0,0,0);
+>>>>>>> nav works also fixed tower size
 
                 break;
             case 1:     // Attack

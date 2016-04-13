@@ -419,6 +419,7 @@ GameObject:
   - 205: {fileID: 20537506}
   - 114: {fileID: 11476582}
   - 64: {fileID: 6473000}
+  - 195: {fileID: 19597658}
   m_Layer: 0
   m_Name: Mamalien (Small)
   m_TagString: Enemy
@@ -1503,6 +1504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+  goal: {fileID: 0}
   alive: 0
 --- !u!137 &13710078
 SkinnedMeshRenderer:
@@ -1733,6 +1735,26 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.07621002, y: 10.824652, z: 0.27112675}
     m_Extent: {x: 11.317869, y: 12.620762, z: 12.24455}
   m_DirtyAABB: 0
+--- !u!195 &19597658
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159340}
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!205 &20537506
 LODGroup:
   m_ObjectHideFlags: 1
