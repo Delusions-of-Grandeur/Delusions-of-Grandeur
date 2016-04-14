@@ -15,7 +15,7 @@ public class TowerTargeting_SniperTower1 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		UFO = GameObject.Find("flying Disk landed");
 	}
 
 	// Update is called once per frame

@@ -23,7 +23,12 @@ var transparentStructures : GameObject[];
 //
 
 private var playerScript : UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl;
+private var playerDisplay : PlayerDisplay;
 
+public var buildLvl1Gattling : int;
+public var buildLvl2Gattling : int;
+public var buildLvl1Sniper : int;
+public var buildLvl2Sniper : int;
 
 function Start()
 {
@@ -36,11 +41,12 @@ function Start()
 
 function Update ()
 {
-
+//	print(playerDisplay.getMoney())
    	// get a reference to the target script (ScriptName is the name of your script):
    	var thePlayer = GameObject.FindWithTag("Player");
    	playerScript = thePlayer.GetComponent("UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl");
-
+   	playerDisplay = thePlayer.GetComponent("PlayerDisplay");
+   	print(playerDisplay.money);
 
 	if(Input.GetKeyDown(KeyCode.Alpha1)){
 		structureIndex = 0;
@@ -150,7 +156,7 @@ function Update ()
 					var tempStructureUpgrade : GameObject;
 					if(lastHitObj.transform.GetChild(0).gameObject.tag == "GatlingTower1") {
 						tempStructureUpgrade = Instantiate(transparentStructures[1], lastHitObj.transform.position, Quaternion.identity);
-					} else {
+					} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "SniperTower1"){
 						tempStructureUpgrade = Instantiate(transparentStructures[3], lastHitObj.transform.position, Quaternion.identity);
 					}
 
@@ -203,28 +209,46 @@ function Update ()
 		{
 			if(lastHitObj.tag == "PlacementPlane_Open" && functionIndex == 0) //if the selected tile is "open"...
 			{
-//				//drop the chosen structure exactly at the tile's position, and rotation of zero. See how the "index" comes in handy here? :)
-				var newStructure : GameObject = Instantiate(allStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
-				newStructure.transform.parent = lastHitObj.transform;
-				//newStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
-				//set this tile's tag to "Taken", so we can't double-place structures
-				lastHitObj.tag = "PlacementPlane_Taken";
+				var newStructure : GameObject;
+				if(structureIndex == 0 && playerDisplay.money >= buildLvl1Gattling){
+					newStructure = Instantiate(allStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
+					newStructure.transform.parent = lastHitObj.transform;
+					lastHitObj.tag = "PlacementPlane_Taken";
+					playerDisplay.money -= buildLvl1Gattling;
+				} else if(structureIndex == 2 && playerDisplay.money >= buildLvl1Sniper){
+					newStructure = Instantiate(allStructures[structureIndex], lastHitObj.transform.position, Quaternion.identity);
+					newStructure.transform.parent = lastHitObj.transform;
+					lastHitObj.tag = "PlacementPlane_Taken";
+					playerDisplay.money -= buildLvl1Sniper;
+				}
+
 			} else if (lastHitObj.tag == "PlacementPlane_Taken" && functionIndex == 1){
+
+				if(lastHitObj.transform.GetChild(0).gameObject.tag == "GatlingTower1"){
+					playerDisplay.money += buildLvl1Gattling;
+				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "SniperTower1"){
+					playerDisplay.money += buildLvl1Sniper;
+				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "GatlingTower2"){
+					playerDisplay.money += buildLvl2Gattling;
+				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "SniperTower2"){
+					playerDisplay.money += buildLvl2Sniper;
+				}
+
 				Destroy(lastHitObj.transform.GetChild(0).gameObject);
 				lastHitObj.tag = "PlacementPlane_Open";
 			} else if (lastHitObj.tag == "PlacementPlane_Taken" && functionIndex == 2){
 				print(lastHitObj.transform.GetChild(0).tag);
-				if(lastHitObj.transform.GetChild(0).gameObject.tag == "GatlingTower1"){
+				if(lastHitObj.transform.GetChild(0).gameObject.tag == "GatlingTower1" && playerDisplay.money >= buildLvl2Gattling){
 					print("gatling");
+					playerDisplay.money -= buildLvl2Gattling;
 					Destroy(lastHitObj.transform.GetChild(0).gameObject);
 					var upgradeCubeStructure : GameObject = Instantiate(allStructures[1], lastHitObj.transform.position, Quaternion.identity);
-					//upgradeCubeStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 					upgradeCubeStructure.transform.parent = lastHitObj.transform;
-				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "SniperTower1"){
+				} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "SniperTower1" && playerDisplay.money >= buildLvl2Sniper){
 					print("sniper");
+					playerDisplay.money -= buildLvl2Sniper;
 					Destroy(lastHitObj.transform.GetChild(0).gameObject);
 					var upgradeSphereStructure : GameObject = Instantiate(allStructures[3], lastHitObj.transform.position, Quaternion.identity);
-					//upgradeSphereStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 					upgradeSphereStructure.transform.parent = lastHitObj.transform;
 				}
 			}
