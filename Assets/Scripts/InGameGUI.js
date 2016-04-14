@@ -46,7 +46,6 @@ function Update ()
    	var thePlayer = GameObject.FindWithTag("Player");
    	playerScript = thePlayer.GetComponent("UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl");
    	playerDisplay = thePlayer.GetComponent("PlayerDisplay");
-   	print(playerDisplay.money);
 
 	if(Input.GetKeyDown(KeyCode.Alpha1)){
 		structureIndex = 0;
