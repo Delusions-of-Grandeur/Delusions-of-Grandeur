@@ -15,7 +15,7 @@ namespace SpawningFramework
         public bool alive;
 
         void Update()
-        {
+        { 
 			//avoidance logic
         }
 

@@ -24,11 +24,7 @@ public class TowerTargeting_GatlingTower1 : MonoBehaviour {
 		target = SearchTarget ();
 		if(target != null){
 			customLookAt ();
-			firing = true;
-			StartCoroutine("shoot");
-		} else {
-			firing = false;
-			StopCoroutine("shoot");
+			if (!firing) StartCoroutine("shoot");
 		}
 	}
 
@@ -72,14 +68,12 @@ public class TowerTargeting_GatlingTower1 : MonoBehaviour {
 
 	IEnumerator shoot()
 	{
+		firing = true;
 		yield return new WaitForSeconds(.1f);
 		barrel.transform.Rotate (0,0,360*Time.deltaTime);
 		GameObject bullet = (GameObject)Instantiate(bulletPrefab, barrel.transform.position, Quaternion.identity);
 		bullet.transform.LookAt (target);
 		bullet.GetComponent<Rigidbody>().AddForce(barrel.transform.up * 1000);
-
-		if(target == null){
-			yield return null;
-		}
+		firing = false;
 	}
 }

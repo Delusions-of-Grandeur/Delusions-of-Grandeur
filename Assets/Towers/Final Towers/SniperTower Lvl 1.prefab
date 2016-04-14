@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2393572}
   m_Layer: 9
   m_Name: Line24
-  m_TagString: Untagged
+  m_TagString: SniperTower1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ GameObject:
   - 23: {fileID: 2340374}
   m_Layer: 9
   m_Name: Line26
-  m_TagString: Untagged
+  m_TagString: SniperTower1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   - 23: {fileID: 2317784}
   m_Layer: 9
   m_Name: Range
-  m_TagString: Untagged
+  m_TagString: SniperTower1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ GameObject:
   - 95: {fileID: 9512940}
   m_Layer: 9
   m_Name: CyberTankBlue (1)
-  m_TagString: Untagged
+  m_TagString: SniperTower1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ GameObject:
   - 23: {fileID: 2318212}
   m_Layer: 9
   m_Name: Box10
-  m_TagString: Untagged
+  m_TagString: SniperTower1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - 23: {fileID: 2397174}
   m_Layer: 9
   m_Name: Cylinder12
-  m_TagString: Untagged
+  m_TagString: SniperTower1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,7 @@ GameObject:
   - 4: {fileID: 459622}
   m_Layer: 9
   m_Name: Group10
-  m_TagString: Untagged
+  m_TagString: SniperTower1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ GameObject:
   - 64: {fileID: 6490754}
   m_Layer: 9
   m_Name: Tower_RotateY
-  m_TagString: Untagged
+  m_TagString: SniperTower1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 632.8073, y: 133.66508, z: 470.7539}
+  m_LocalPosition: {x: 659.8842, y: 153.79008, z: 486.866}
   m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
   m_Children:
   - {fileID: 445592}
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UFO: {fileID: 0}
   firing: 0
-  bulletPrefab: {fileID: 100000, guid: e7793a98dcbe24e47b3b5b180e661ca0, type: 2}
+  bulletPrefab: {fileID: 100000, guid: d069d0337af3d4b2ebe53f55e48edeea, type: 2}
   sniperBase: {fileID: 194372}
   sniperGun: {fileID: 130102}
   barrel: {fileID: 174496}
