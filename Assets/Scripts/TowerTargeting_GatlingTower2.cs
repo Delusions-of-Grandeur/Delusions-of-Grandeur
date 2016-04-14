@@ -17,7 +17,7 @@ public class TowerTargeting_GatlingTower2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		UFO = GameObject.Find("flying Disk landed");
 	}
 
 	// Update is called once per frame

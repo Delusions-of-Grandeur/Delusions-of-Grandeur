@@ -16,7 +16,6 @@ namespace SpawningFramework
 
         void Update()
         {
-			nav.destination = GameObject.Find("flying Disk landed").transform.position;
 			//avoidance logic
         }
 
@@ -26,6 +25,7 @@ namespace SpawningFramework
             health = MaxHealth;
             alive = true;
 			nav = GetComponent<NavMeshAgent>();
+			nav.destination = GameObject.Find("flying Disk landed").transform.position;
         }
 
         public void life()
@@ -35,6 +35,8 @@ namespace SpawningFramework
 
         public virtual void die()
         {
+			GameObject.Find ("Ethan").GetComponent<PlayerDisplay>().money += 100;
+
             alive = false;
             SpawnController.numAlive--;
             Destroy(this.gameObject);
