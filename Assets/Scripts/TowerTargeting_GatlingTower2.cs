@@ -17,7 +17,7 @@ public class TowerTargeting_GatlingTower2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		UFO = GameObject.Find("flying Disk landed");
 	}
 
 	// Update is called once per frame
@@ -27,11 +27,7 @@ public class TowerTargeting_GatlingTower2 : MonoBehaviour {
 
 		if(target != null){
 			customLookAt ();
-			firing = true;
-			StartCoroutine("shoot");
-		} else {
-			firing = false;
-			StopCoroutine("shoot");
+			if (!firing) StartCoroutine("shoot");
 		}
 	}
 
@@ -78,6 +74,7 @@ public class TowerTargeting_GatlingTower2 : MonoBehaviour {
 
 	IEnumerator shoot()
 	{
+		firing = true;
 		yield return new WaitForSeconds(.1f);
 		barrel.transform.Rotate (0,0,360*Time.deltaTime);
 		barrel2.transform.Rotate (0,0,360*Time.deltaTime);
@@ -85,9 +82,6 @@ public class TowerTargeting_GatlingTower2 : MonoBehaviour {
 		bullet.transform.LookAt (target);
 		GameObject bullet2 = (GameObject)Instantiate(bulletPrefab, barrel2.transform.position, Quaternion.identity);
 		bullet2.transform.LookAt (target);
-
-		if(target == null){
-			yield return null;
-		}
+		firing = false;
 	}
 }

@@ -8,12 +8,17 @@ namespace SpawningFramework
 
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.tag);
             if (other.tag == ("Bullet"))
             {
-                Hurt(53);
+                Hurt(25);
                 //              Destroy(other.gameObject);        
-            }
+			} else if (other.tag == ("BulletGatling"))
+			{
+				Hurt(2f);  
+			} else if (other.tag == ("BulletSniper"))
+			{
+				Hurt(8f);
+			}
         }
     }
 }

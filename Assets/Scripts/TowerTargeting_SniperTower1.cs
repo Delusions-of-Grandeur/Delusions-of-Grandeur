@@ -15,21 +15,16 @@ public class TowerTargeting_SniperTower1 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		UFO = GameObject.Find("flying Disk landed");
 	}
 
 	// Update is called once per frame
 	void Update () {
 
 		target = SearchTarget ();
-
 		if(target != null){
 			customLookAt ();
-			firing = true;
-			StartCoroutine("shoot");
-		} else {
-			firing = false;
-			StopCoroutine("shoot");
+			if (!firing) StartCoroutine("shoot");
 		}
 	}
 
@@ -71,14 +66,12 @@ public class TowerTargeting_SniperTower1 : MonoBehaviour {
 
 	IEnumerator shoot()
 	{
+		firing = true;
 		yield return new WaitForSeconds(.75f);
 		GameObject bullet = (GameObject)Instantiate(bulletPrefab, new Vector3(barrel.transform.position.x+.1f,barrel.transform.position.y,barrel.transform.position.z) , Quaternion.identity);
 		bullet.transform.LookAt (target);
 		GameObject bullet2 = (GameObject)Instantiate(bulletPrefab, new Vector3(barrel.transform.position.x-.1f,barrel.transform.position.y,barrel.transform.position.z) , Quaternion.identity);
 		bullet2.transform.LookAt (target);
-
-		if(target == null){
-			yield return null;
-		}
+		firing = false;
 	}
 }

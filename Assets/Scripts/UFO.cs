@@ -17,7 +17,7 @@ public class UFO : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//        life();
+        life();
         if (health <= 0)
         {
             Debug.Log("Gameover!!!");

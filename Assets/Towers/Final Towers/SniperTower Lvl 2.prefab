@@ -372,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 662.83276, y: 133.66508, z: 467.93948}
+  m_LocalPosition: {x: 653.1598, y: 161.66508, z: 476.72043}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 444688}
@@ -809,7 +809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UFO: {fileID: 0}
   firing: 0
-  bulletPrefab: {fileID: 100000, guid: e7793a98dcbe24e47b3b5b180e661ca0, type: 2}
+  bulletPrefab: {fileID: 100000, guid: d069d0337af3d4b2ebe53f55e48edeea, type: 2}
   sniperBase: {fileID: 153584}
   sniperGun: {fileID: 134398}
   barrel: {fileID: 182442}

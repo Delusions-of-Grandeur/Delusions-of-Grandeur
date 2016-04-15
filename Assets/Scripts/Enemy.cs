@@ -41,6 +41,7 @@ namespace SpawningFramework
 
         void GoToIdle()
         {
+
         }
 
         void Attack()
