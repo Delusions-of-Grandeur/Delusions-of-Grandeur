@@ -5,6 +5,7 @@ namespace SpawningFramework
 {
     public class SmallEnemy : Enemy
     {
+
         void OnTriggerEnter(Collider other)
         {
             Debug.Log(other.tag);

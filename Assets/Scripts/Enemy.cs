@@ -7,7 +7,11 @@ namespace SpawningFramework
     {
         public float MaxHealth;
         float health;
-		private NavMeshAgent nav;
+        private NavMeshAgent nav;
+
+        float attackTimer = 1.5f;
+        float coolDown = 1.5f;
+        float attackDuration = 0.5f;
 
         StateMachine sm;
 
@@ -16,8 +20,32 @@ namespace SpawningFramework
 
         void Update()
         {
-			nav.destination = GameObject.Find("flying Disk landed").transform.position;
-			//avoidance logic
+            nav.destination = GameObject.Find("flying Disk landed").transform.position;
+
+            if (Vector3.Distance(this.getDest(), this.transform.position) < 2)
+            {
+                if (attackTimer > 0)
+                    attackTimer -= Time.deltaTime;
+                if (attackTimer < 0)
+                    attackTimer = 0;
+
+                if (attackTimer == 0)
+                {
+                    Attack();
+                    attackTimer = coolDown;
+                }
+
+                nav.Stop();
+            }
+        }
+
+        void GoToIdle()
+        {
+        }
+
+        void Attack()
+        {
+            GameObject.Find("flying Disk landed").GetComponent<UFO>().Hurt(5);
         }
 
         /// Called when this enemy has been spawned
@@ -26,6 +54,21 @@ namespace SpawningFramework
             health = MaxHealth;
             alive = true;
 			nav = GetComponent<NavMeshAgent>();
+        }
+
+        public void Go()
+        {
+            nav.destination = GameObject.Find("flying Disk landed").transform.position;
+        }
+
+        public void Stop()
+        {
+            nav.Stop();
+        }
+
+        public Vector3 getDest()
+        {
+            return nav.destination;
         }
 
         public void life()
@@ -37,6 +80,12 @@ namespace SpawningFramework
         {
             alive = false;
             SpawnController.numAlive--;
+            Invoke("Delete", 7);
+            //set animation to dead
+        }
+
+        void Delete()
+        {
             Destroy(this.gameObject);
             Destroy(this);
         }

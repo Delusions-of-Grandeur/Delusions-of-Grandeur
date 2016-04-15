@@ -1474,7 +1474,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
-  m_Mesh: {fileID: 4300000, guid: c5717d66a63433d46be8ab0996cd7452, type: 3}
+  m_Mesh: {fileID: 4300002, guid: c5717d66a63433d46be8ab0996cd7452, type: 3}
 --- !u!95 &9585602
 Animator:
   serializedVersion: 3
@@ -1504,7 +1504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
-  goal: {fileID: 0}
   alive: 0
 --- !u!137 &13710078
 SkinnedMeshRenderer:
@@ -1818,7 +1817,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: c5717d66a63433d46be8ab0996cd7452, type: 3}
+      objectReference: {fileID: 4300002, guid: c5717d66a63433d46be8ab0996cd7452, type: 3}
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
