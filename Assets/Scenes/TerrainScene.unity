@@ -41360,7 +41360,7 @@ MonoBehaviour:
   aim: 0
   aimingWeight: 0
   lookInCameraDirection: 1
-  crosshairImage: {fileID: 2800000, guid: ff8f8d85742dc485c8b8d7d4a2a9a5e4, type: 3}
+  crosshairImage: {fileID: 2800000, guid: 7e592c0c1439843e8a80b3c2d1dd7f7e, type: 3}
   normalZ: -1.2
   aimZ: 0
   aimY: 0
