@@ -252,5 +252,9 @@ function Update ()
 				}
 			}
 		}
-	}else { 		if (beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){ 			Destroy(beforeLastHitObj.transform.GetChild(0).gameObject); 		} 	}
+	} else {
+		if (beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){
+			Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
+		}
+	}
 }
