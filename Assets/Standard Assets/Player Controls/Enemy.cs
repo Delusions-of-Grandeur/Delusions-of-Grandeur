@@ -1,123 +1,169 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace SpawningFramework
 {
-    public class Enemy : MonoBehaviour
-    {
-        public float MaxHealth;
-        float health;
+	public class Enemy : MonoBehaviour
+	{
+		public float MaxHealth;
+		float health;
 		private NavMeshAgent nav;
-		public bool canMakeIt;
+		Vector3 dest;
+		GameObject[] objs;
 
-        StateMachine sm;
+		float attackTimer = 1.5f;
+		float coolDown = 1.5f;
+		float attackDuration = 0.5f;
 
-        [HideInInspector]
-        public bool alive;
+		StateMachine sm;
 
-		public Transform target;
-		private NavMeshPath path;
-		private float elapsed = 0.0f; 
+		public Animator anim;
 
-        void Update()
-        { 
-			//avoidance logic
-			elapsed += Time.deltaTime;
-			if (elapsed > 1.0f) {
-				elapsed -= 1.0f;
-				if (Vector3.Distance (transform.position, target.position) < 10) {
-					canMakeIt = true;
-				} else {
-					if (NavMesh.CalculatePath (transform.position, target.position, NavMesh.AllAreas, path)) {
-						canMakeIt = true;
-					} else {
-//						print (path.status);
-						canMakeIt = false;
-					}
+		[HideInInspector]
+		public bool alive;
+
+		void Update()
+		{
+			nav.destination = dest;
+
+			if (Vector3.Distance(this.getDest(), this.transform.position) < 2)
+			{
+				if (attackTimer > 0)
+					attackTimer -= Time.deltaTime;
+				if (attackTimer < 0)
+					attackTimer = 0;
+
+				if (attackTimer == 0)
+				{
+					Attack();
+					attackTimer = coolDown;
 				}
-				 
+
+				nav.Stop();
 			}
-			for (int i = 0; i < path.corners.Length-1; i++)
-				Debug.DrawLine(path.corners[i], path.corners[i+1], Color.red);
-        }
+		}
 
-        /// Called when this enemy has been spawned
-        void Start()
-        {
-//            health = MaxHealth;
-			health = 1000;
-            alive = true;
+		void GoToIdle()
+		{
 
+		}
 
-			target = GameObject.Find ("flying Disk landed").transform;
+		void Attack()
+		{
+			GameObject.Find("flying Disk landed").GetComponent<UFO>().Hurt(5);
+			anim.SetBool ("Attack", true);
+		}
+
+		/// Called when this enemy has been spawned
+		void Start()
+		{
+			health = MaxHealth;
+			alive = true;
 			nav = GetComponent<NavMeshAgent>();
-			nav.destination = target.position;
-			path = new NavMeshPath();
-			canMakeIt = true;
-			elapsed = 0.0f;
-        }
+			anim = GetComponent<Animator> ();
+			//          dest = GameObject.Find("flying Disk landed").transform.position;
 
-        public void life()
-        {
-            Debug.Log(health);
-        }
+			objs = GameObject.FindGameObjectsWithTag("Waypoint");
+			int top = objs.Length;
+			float length = 9999f;
 
-        public virtual void die()
-        {
+			for(int i = 0; i < top; i++)
+			{
+				float temp = Vector3.Distance(objs[i].transform.position, this.transform.position);
+				if (temp < length)
+				{
+					length = temp;
+					dest = objs[i].transform.position;
+				}
+			}
+
+		}
+
+		public void Go()
+		{
+			nav.destination = GameObject.Find("flying Disk landed").transform.position;
+		}
+
+		public void Stop()
+		{
+
+			nav.Stop();
+		}
+
+		public Vector3 getDest()
+		{
+			return nav.destination;
+		}
+
+		public void life()
+		{
+			Debug.Log(health);
+		}
+
+		public virtual void die()
+		{
 			GameObject.Find ("Ethan").GetComponent<PlayerDisplay>().money += 100;
+			alive = false;
+			SpawnController.numAlive--;
+			anim.SetBool ("Dead", true);
+			nav.Stop ();
+			Invoke("Delete", 3.5f);
+			//set animation to dead
+		}
 
-            alive = false;
-            SpawnController.numAlive--;
-            Destroy(this.gameObject);
-            Destroy(this);
-        }
+		void Delete()
+		{
+			Destroy(this.gameObject);
+			Destroy(this);
+		}
 
-        /// Hurts the enemy and returns if it dies or not
-        public virtual bool Hurt(float damage)
-        {
-            if (!alive)
-                return false;//exit if dead
+		/// Hurts the enemy and returns if it dies or not
+		public virtual bool Hurt(float damage)
+		{
+			if (!alive)
+				return false;//exit if dead
 
-            health -= damage;//hurt the enemy
+			health -= damage;//hurt the enemy
 
-            if (health < 0.1)
-            {
-                die();
-                return true;
-            }
+			if (health < 0.1)
+			{
+				die();
+				return true;
+			}
 
-            return health < 0.1;//return if this will die
-        }
+			return health < 0.1;//return if this will die
+		}
 
 
-    }
+	}
 
 }
 
 public class StateMachine
 {
-    int currentState;
+	int currentState;
 
-    public void update()
-    {
-        switch (currentState)
-        {
-            case 0:     // Default state
-//			nav.destination = new Vector3(0,0,0);
+	public void update()
+	{
+		switch (currentState)
+		{
+		case 0:     // Default state
+			//			nav.destination = new Vector3(0,0,0);
 
-                break;
-            case 1:     // Attack
+			break;
+		case 1:     // Attack
 
-                break;
-            case 2:     // Pursue
+			break;
+		case 2:     // Pursue
 
-                break;
-            case 3:     // Die
+			break;
+		case 3:     // Die
 
-                break;
-            case 4:
-                break;
-        }
-    }
+			break;
+		case 4:
+			break;
+		}
+	}
 
 }
