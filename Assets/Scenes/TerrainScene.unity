@@ -41513,7 +41513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemySmall: {fileID: 159340, guid: 717ee01557c7e1f47bc5f4db3424a2ed, type: 2}
-  EnemyLarge: {fileID: 120326, guid: 10e34e11e521c3640b55fc7b70792e47, type: 2}
+  EnemyLarge: {fileID: 165896, guid: f39abc52113bddb44b339bc8314d79b4, type: 2}
   round: 0
 --- !u!114 &1743907842
 MonoBehaviour:
