@@ -13,7 +13,7 @@ public class Shoot : MonoBehaviour {
 	private float zDistance = 100f;
 
     public Text ammoText;
-    public int ammo = 30;
+    public int ammo = 1;
 
 	void FixedUpdate ()
  	{
@@ -28,7 +28,6 @@ public class Shoot : MonoBehaviour {
 				Instantiate(bullet, transform.position, transform.rotation);
 				GetComponent<AudioSource>().Play();
 				counter = 0;
-                ammo--;
 
 				RaycastHit hit;
 				Ray ray = new Ray(transform.position, transform.forward);
@@ -41,9 +40,4 @@ public class Shoot : MonoBehaviour {
 		}
 
 	}
-
-    void Update()
-    {
-        ammoText.text = "Ammo: " + ammo.ToString();
-    }
 }
