@@ -17,21 +17,16 @@ public class UFO : MonoBehaviour {
     void Start () {
         health = MaxHealth;
         alive = true;
-
-		float percent = MaxHealth / health;
-		print(percent);
-		slider.value = .5f;
     }
 	
 	// Update is called once per frame
 	void Update () {
-		print("update");
 
 	}
 
     void life()
     {
-        print(health);
+//        print(health);
     }
 
     /*
@@ -48,7 +43,6 @@ public class UFO : MonoBehaviour {
 
     public bool Hurt(float damage)
     {
-		
         if (!alive)
             return false;//exit if dead
 
@@ -61,7 +55,9 @@ public class UFO : MonoBehaviour {
         }
 
         life();
-
+		float percent =  health/MaxHealth;
+		print(percent);
+		slider.value = percent;
         return health < 0.1;//return if this will die
     }
 

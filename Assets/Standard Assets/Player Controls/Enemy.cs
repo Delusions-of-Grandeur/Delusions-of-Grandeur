@@ -15,6 +15,7 @@ namespace SpawningFramework
 		float attackTimer = 1.5f;
 		float coolDown = 1.5f;
 		float attackDuration = 0.5f;
+		public bool isAttacking;
 
 		StateMachine sm;
 
@@ -29,6 +30,11 @@ namespace SpawningFramework
 
 			if (Vector3.Distance(this.getDest(), this.transform.position) < 2)
 			{
+				if (!isAttacking) {
+					isAttacking = true;
+					anim.SetBool ("Attack", true);
+				}
+
 				if (attackTimer > 0)
 					attackTimer -= Time.deltaTime;
 				if (attackTimer < 0)
@@ -52,12 +58,13 @@ namespace SpawningFramework
 		void Attack()
 		{
 			GameObject.Find("flying Disk landed").GetComponent<UFO>().Hurt(5);
-			anim.SetBool ("Attack", true);
 		}
 
 		/// Called when this enemy has been spawned
 		void Start()
 		{
+			isAttacking = false;
+
 			health = MaxHealth;
 			alive = true;
 			nav = GetComponent<NavMeshAgent>();

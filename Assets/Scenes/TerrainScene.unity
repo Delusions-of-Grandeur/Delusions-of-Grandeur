@@ -27303,7 +27303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24137926, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.7205882, g: 0.7007099, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -36787,9 +36787,6 @@ MonoBehaviour:
   tiltMax: 75
   tiltMin: 45
   lockCursor: 0
-  activeCrosshair: {fileID: 0}
-  crosshairOffsetWiggle: 0.2
-  refPivot: {fileID: 0}
 --- !u!4 &1335108991
 Transform:
   m_ObjectHideFlags: 0

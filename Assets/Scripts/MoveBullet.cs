@@ -17,7 +17,6 @@ public class MoveBullet : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-	//	print (other.tag);
 		if(other.tag != "Gatling1" && other.tag != "Gatling2" && other.tag != "SniperTower1" && other.tag != "SniperTower2" && other.tag!="Player"){
 			Destroy(gameObject); //Delete the bullet
 		}

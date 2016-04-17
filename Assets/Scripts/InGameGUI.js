@@ -71,7 +71,7 @@ function Update ()
 	} else if(Input.GetKeyDown(KeyCode.N)){ // Sell
 		functionIndex = 1;
 		hoverMat = allMats[1];
-		if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+		if(beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){
 			Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
 		}
 		beforeLastHitObj = null;
@@ -90,7 +90,7 @@ function Update ()
 	} else if(Input.GetKeyDown(KeyCode.U)){ // Upgrade
 		functionIndex = 2;
 		hoverMat = allMats[2];
-		if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+		if(beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){
 			Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
 		}
 		beforeLastHitObj = null;
@@ -134,14 +134,14 @@ function Update ()
 					tempStructure.transform.parent = lastHitObj.transform;
 					//tempStructure.transform.position.y = 0.9030163; // this is because they are displaced in the prepfab should fix
 
-					if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+					if(beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){
 						Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
 					}
 
 					beforeLastHitObj = lastHitObj;
 				}
 			} else if(lastHitObj.tag == "PlacementPlane_Taken"){
-				if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+				if(beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){
 					Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
 				}
 				beforeLastHitObj = null;
@@ -157,11 +157,14 @@ function Update ()
 						tempStructureUpgrade = Instantiate(transparentStructures[1], lastHitObj.transform.position, Quaternion.identity);
 					} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "SniperTower1"){
 						tempStructureUpgrade = Instantiate(transparentStructures[3], lastHitObj.transform.position, Quaternion.identity);
-					}
+					} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "GatlingTower2") {
+						tempStructureUpgrade = Instantiate(transparentStructures[1], lastHitObj.transform.position, Quaternion.identity);
+					} else if(lastHitObj.transform.GetChild(0).gameObject.tag == "SniperTower2"){
+						tempStructureUpgrade = Instantiate(transparentStructures[3], lastHitObj.transform.position, Quaternion.identity);
+					} 
 
 					tempStructureUpgrade.transform.parent = lastHitObj.transform;
 
-					print(beforeLastHitObjUpgrade);
 					if(beforeLastHitObjUpgrade != null ){
 						for (var child : Transform in beforeLastHitObjUpgrade.transform){
 				       		if (child.gameObject.name == "Transparent GatlingTower Lvl 2(Clone)"){
@@ -184,7 +187,7 @@ function Update ()
 				lastHitObj = null; //nullify the plane selection- this is so that we can't accidentally drop turrets without a proper and valid location selected
 			}
 
-			if(beforeLastHitObj != null && beforeLastHitObj.transform.GetChild(0).gameObject != null){
+			if(beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){
 				Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
 				beforeLastHitObj = null;
 			}
