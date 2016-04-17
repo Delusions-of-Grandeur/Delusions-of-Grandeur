@@ -25,6 +25,8 @@ TagManager:
   - GatlingTower1
   - BulletGatling
   - BulletSniper
+  - Loc
+  - Waypoint
   layers:
   - Default
   - TransparentFX

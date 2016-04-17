@@ -81,12 +81,12 @@ public class SpawnController : MonoBehaviour {
 
     public void SpawnSmall()
     {
-        Instantiate(EnemySmall, RandomCircle(objs[Random.Range(0, top)].GetComponent<Transform>().position, 4), Quaternion.identity);
+        Instantiate(EnemySmall, RandomCircle(objs[Random.Range(0, top)].GetComponent<Transform>().position, 3), Quaternion.identity);
         numAlive++;
     }
     public void SpawnLarge()
     {
-        Instantiate(EnemyLarge, RandomCircle(objs[Random.Range(0, top)].GetComponent<Transform>().position, 4), Quaternion.identity);
+        Instantiate(EnemyLarge, RandomCircle(objs[Random.Range(0, top)].GetComponent<Transform>().position, 3), Quaternion.identity);
         numAlive++;
     }
 }

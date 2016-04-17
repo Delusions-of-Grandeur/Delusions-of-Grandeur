@@ -8,6 +8,8 @@ namespace SpawningFramework
         public float MaxHealth;
         float health;
         private NavMeshAgent nav;
+        Vector3 dest;
+        GameObject[] objs;
 
         float attackTimer = 1.5f;
         float coolDown = 1.5f;
@@ -20,7 +22,7 @@ namespace SpawningFramework
 
         void Update()
         {
-            nav.destination = GameObject.Find("flying Disk landed").transform.position;
+            nav.destination = dest;
 
             if (Vector3.Distance(this.getDest(), this.transform.position) < 2)
             {
@@ -55,6 +57,22 @@ namespace SpawningFramework
             health = MaxHealth;
             alive = true;
 			nav = GetComponent<NavMeshAgent>();
+//          dest = GameObject.Find("flying Disk landed").transform.position;
+
+            objs = GameObject.FindGameObjectsWithTag("Waypoint");
+            int top = objs.Length;
+            float length = 9999f;
+
+            for(int i = 0; i < top; i++)
+            {
+                float temp = Vector3.Distance(objs[i].transform.position, this.transform.position);
+                if (temp < length)
+                {
+                    length = temp;
+                    dest = objs[i].transform.position;
+                }
+            }
+
         }
 
         public void Go()

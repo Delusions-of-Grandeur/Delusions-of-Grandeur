@@ -6,7 +6,7 @@ public class UFO : MonoBehaviour {
     public GameObject ufo;
 
     public float MaxHealth;
-    float health;
+    public float health;
     bool alive;
 
     // Use this for initialization
@@ -17,12 +17,7 @@ public class UFO : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        life();
-        if (health <= 0)
-        {
-            Debug.Log("Gameover!!!");
-            life();
-        }
+        
 	}
 
     void life()
