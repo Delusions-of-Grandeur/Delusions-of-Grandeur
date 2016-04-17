@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UFO : MonoBehaviour {
 
@@ -9,20 +10,28 @@ public class UFO : MonoBehaviour {
     public float health;
     bool alive;
 
+	public UnityEngine.UI.Slider slider;
+
+
     // Use this for initialization
     void Start () {
         health = MaxHealth;
         alive = true;
+
+		float percent = MaxHealth / health;
+		print(percent);
+		slider.value = .5f;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
+		print("update");
+
 	}
 
     void life()
     {
-        Debug.Log(health);
+        print(health);
     }
 
     /*
@@ -39,6 +48,7 @@ public class UFO : MonoBehaviour {
 
     public bool Hurt(float damage)
     {
+		
         if (!alive)
             return false;//exit if dead
 
@@ -51,6 +61,7 @@ public class UFO : MonoBehaviour {
         }
 
         life();
+
         return health < 0.1;//return if this will die
     }
 

@@ -12856,15 +12856,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0c5fa332187126b49a1e9939b653c735, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 72.47339
+      value: 73.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0c5fa332187126b49a1e9939b653c735, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -101.38536
+      value: -105.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0c5fa332187126b49a1e9939b653c735, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 100.53476
+      value: 101.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0c5fa332187126b49a1e9939b653c735, type: 2}
       propertyPath: m_LocalScale.z
@@ -13726,15 +13726,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5c2d2ce1d9890db4bbfff22b645efb81, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 62.452698
+      value: 63.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c2d2ce1d9890db4bbfff22b645efb81, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -98.20413
+      value: -102
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c2d2ce1d9890db4bbfff22b645efb81, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 104.27072
+      value: 105.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c2d2ce1d9890db4bbfff22b645efb81, type: 2}
       propertyPath: m_LocalRotation.x
@@ -13768,15 +13768,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: f1a3379182c4ceb4da330a09c679c03a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 45.400696
+      value: 46.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f1a3379182c4ceb4da330a09c679c03a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -104.353134
+      value: -108.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f1a3379182c4ceb4da330a09c679c03a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 103.60135
+      value: 104.6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f1a3379182c4ceb4da330a09c679c03a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -21546,7 +21546,7 @@ GameObject:
   - 222: {fileID: 137961690}
   - 114: {fileID: 137961689}
   m_Layer: 5
-  m_Name: AmmoText
+  m_Name: RoundText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21601,7 +21601,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Ammo:'
+  m_Text: 'Round:'
 --- !u!222 &137961690
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37920,7 +37920,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1779858419}
   m_HandleRect: {fileID: 0}
@@ -41515,6 +41515,7 @@ MonoBehaviour:
   EnemySmall: {fileID: 159340, guid: 717ee01557c7e1f47bc5f4db3424a2ed, type: 2}
   EnemyLarge: {fileID: 120326, guid: 10e34e11e521c3640b55fc7b70792e47, type: 2}
   round: 0
+  RoundText: {fileID: 137961689}
 --- !u!114 &1743907842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44733,9 +44734,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b24e916711e1284487b794781d0da2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ufo: {fileID: 0}
+  ufo: {fileID: 2032837439}
   MaxHealth: 100
   health: 0
+  slider: {fileID: 1419081314}
 --- !u!208 &2032837441
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -44751,20 +44753,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: -337.18}
   m_TimeToStationary: 0.5
---- !u!114 &2032837442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2032837439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b24e916711e1284487b794781d0da2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ufo: {fileID: 2032837439}
-  MaxHealth: 100
-  health: 0
 --- !u!1001 &2035331194
 Prefab:
   m_ObjectHideFlags: 0
