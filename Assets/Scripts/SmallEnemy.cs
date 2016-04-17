@@ -10,11 +10,11 @@ namespace SpawningFramework
         {
             if (other.tag == ("Bullet"))
             {
-                Hurt(25);
+                Hurt(20);
                 //              Destroy(other.gameObject);        
 			} else if (other.tag == ("BulletGatling"))
 			{
-				Hurt(2f);  
+				Hurt(3f);  
 			} else if (other.tag == ("BulletSniper"))
 			{
 				Hurt(8f);
