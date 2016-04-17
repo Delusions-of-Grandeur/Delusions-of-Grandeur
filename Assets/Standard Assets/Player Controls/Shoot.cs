@@ -44,6 +44,6 @@ public class Shoot : MonoBehaviour {
 	
 	void Update()
     {
-        ammoText.text = "Ammo: " + ammo.ToString();
+        //ammoText.text = "Ammo: " + ammo.ToString();
     }
 }
