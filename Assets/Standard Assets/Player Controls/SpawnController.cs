@@ -72,7 +72,7 @@ public class SpawnController : MonoBehaviour {
         }
         else
         {
-            for (int i = 0; i < (1 + 2 * round); i++)
+            for (int i = 0; i < (6 + 2 * round); i++)
             {
                 Invoke("SpawnSmall", Random.Range(0, 9));
             }

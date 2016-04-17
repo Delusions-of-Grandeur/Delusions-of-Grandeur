@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace SpawningFramework
 {
@@ -16,6 +17,8 @@ namespace SpawningFramework
         float attackDuration = 0.5f;
 
         StateMachine sm;
+
+		public Animator anim;
 
         [HideInInspector]
         public bool alive;
@@ -49,6 +52,7 @@ namespace SpawningFramework
         void Attack()
         {
             GameObject.Find("flying Disk landed").GetComponent<UFO>().Hurt(5);
+			anim.SetBool ("Attack", true);
         }
 
         /// Called when this enemy has been spawned
@@ -57,6 +61,7 @@ namespace SpawningFramework
             health = MaxHealth;
             alive = true;
 			nav = GetComponent<NavMeshAgent>();
+			anim = GetComponent<Animator> ();
 //          dest = GameObject.Find("flying Disk landed").transform.position;
 
             objs = GameObject.FindGameObjectsWithTag("Waypoint");
@@ -82,6 +87,7 @@ namespace SpawningFramework
 
         public void Stop()
         {
+			anim.SetBool ("Dead", true);
             nav.Stop();
         }
 
