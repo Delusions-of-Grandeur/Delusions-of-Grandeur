@@ -17,8 +17,8 @@ public class MoveBullet : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-		if(!other.transform.gameObject.layer.Equals("Tower")){
-			Destroy(gameObject); //Delete the bullet 
-		}
+//		if(!other.transform.gameObject.layer.Equals("Tower") && !other.transform.gameObject.layer.Equals("Ethan")){
+//			Destroy(gameObject); //Delete the bullet 
+//		}
     }
 }
