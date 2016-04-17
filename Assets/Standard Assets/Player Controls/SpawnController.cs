@@ -26,7 +26,7 @@ public class SpawnController : MonoBehaviour {
         active = false;
 
         InvokeRepeating("waveController", 0.01f, 10);
-		RoundText.text = "Round: " + round.ToString();
+		RoundText.text = "Round: " + (round+1).ToString();
     }
 	
 	// Update is called once per frame
@@ -50,7 +50,7 @@ public class SpawnController : MonoBehaviour {
                 Debug.Log("End round ");
                 active = false;
                 round++;
-				RoundText.text = "Round: " + round.ToString();
+				RoundText.text = "Round: " + (round+1).ToString();
             }
         }
     }
