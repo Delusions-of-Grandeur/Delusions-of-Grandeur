@@ -104,6 +104,9 @@ namespace SpawningFramework
 		public virtual void die()
 		{
 			GameObject.Find ("Ethan").GetComponent<PlayerDisplay>().money += 100;
+			Collider col =  this.GetComponent<Collider> ();
+			col.enabled = false;
+
 			alive = false;
 			SpawnController.numAlive--;
 			anim.SetBool ("Dead", true);
