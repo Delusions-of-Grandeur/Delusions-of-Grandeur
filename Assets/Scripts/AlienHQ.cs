@@ -23,7 +23,7 @@ public class AlienHQ : MonoBehaviour {
 
     void startSpawn()
     {
-        InvokeRepeating("Spawn", 1, 6);
+        InvokeRepeating("Spawn", 1, 2);
     }
 
     public void Spawn()
