@@ -11,10 +11,11 @@ public class UFO : MonoBehaviour {
     bool alive;
 
 	public UnityEngine.UI.Slider slider;
-
+	public Text gameOverText;
 
     // Use this for initialization
     void Start () {
+		gameOverText.enabled = false;
         health = MaxHealth;
         alive = true;
     }
@@ -28,6 +29,11 @@ public class UFO : MonoBehaviour {
     {
 //        print(health);
     }
+
+	void GG(){
+		print ("gg");
+		gameOverText.enabled = true;
+	}
 
     /*
     void OnTriggerEnter(Collider other)
@@ -48,17 +54,18 @@ public class UFO : MonoBehaviour {
 
         health -= damage;//hurt the enemy
 
-        if (health < 0.1)
+        if (health < 0.01)
         {
             alive = false;
+			GG ();
             return true;
         }
-
+			
         life();
 		float percent =  health/MaxHealth;
 		print(percent);
 		slider.value = percent;
-        return health < 0.1;//return if this will die
+        return health < 0.01;//return if this will die
     }
 
 }
