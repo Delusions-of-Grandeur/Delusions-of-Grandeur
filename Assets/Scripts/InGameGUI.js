@@ -204,7 +204,7 @@ function Update ()
 		}
 
 		//drop turrets on click
-		if(Input.GetMouseButtonDown(0) && lastHitObj) //left mouse was clicked, and we have a tile selected
+		if(Input.GetMouseButtonDown(0) && lastHitObj && 2.5 < (thePlayer.transform.position - lastHitObj.transform.position).magnitude) //left mouse was clicked, and we have a tile selected
 		{
 			if(lastHitObj.tag == "PlacementPlane_Open" && functionIndex == 0) //if the selected tile is "open"...
 			{
@@ -251,6 +251,10 @@ function Update ()
 					upgradeSphereStructure.transform.parent = lastHitObj.transform;
 				}
 			}
+		}
+	} else {
+		if (beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){
+			Destroy(beforeLastHitObj.transform.GetChild(0).gameObject);
 		}
 	}
 }
