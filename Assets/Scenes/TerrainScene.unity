@@ -36789,6 +36789,7 @@ MonoBehaviour:
   lockCursor: 0
   activeCrosshair: {fileID: 0}
   crosshairOffsetWiggle: 0.2
+  refPivot: {fileID: 0}
 --- !u!4 &1335108991
 Transform:
   m_ObjectHideFlags: 0
@@ -41393,6 +41394,7 @@ GameObject:
   - 114: {fileID: 1743907836}
   - 114: {fileID: 1743907841}
   - 114: {fileID: 1743907842}
+  - 82: {fileID: 1743907843}
   m_Layer: 0
   m_Name: Ethan
   m_TagString: Player
@@ -41433,7 +41435,7 @@ MonoBehaviour:
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 0.2
+  m_GroundCheckDistance: 0.8
 --- !u!114 &1743907837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41448,16 +41450,11 @@ MonoBehaviour:
   aim: 0
   aimingWeight: 0
   lookInCameraDirection: 1
+  crosshairImage: {fileID: 2800000, guid: 0bd96d31ef129491091f00dd5eb9ea32, type: 3}
   normalZ: -1.2
   aimZ: 0
+  aimY: 0
   aimX: 0.1
-  ik:
-    spine: {fileID: 0}
-    aimingZ: 213.46
-    aimingX: -65.93
-    aimingY: 20.1
-    point: 30
-    DebugAim: 0
 --- !u!136 &1743907838
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41531,6 +41528,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 1000000
   moneyText: {fileID: 606049609}
+--- !u!82 &1743907843
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1743907834}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6dbfdb6124ec34e43a3494bb66c7c389, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!4 &1745525399 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 69878d3ff4069af42b1080f385ca182a, type: 2}
@@ -44651,6 +44722,20 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: ee4af5cc7f18d4d0f81d9ff0dbc1ceaa, type: 3}
   m_PrefabInternal: {fileID: 1895007567}
+--- !u!114 &2032837440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032837439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b24e916711e1284487b794781d0da2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ufo: {fileID: 0}
+  MaxHealth: 100
+  health: 0
 --- !u!208 &2032837441
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -44666,6 +44751,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: -337.18}
   m_TimeToStationary: 0.5
+--- !u!114 &2032837442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032837439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b24e916711e1284487b794781d0da2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ufo: {fileID: 2032837439}
+  MaxHealth: 100
+  health: 0
 --- !u!1001 &2035331194
 Prefab:
   m_ObjectHideFlags: 0

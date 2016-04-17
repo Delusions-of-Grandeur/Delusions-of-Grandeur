@@ -133,6 +133,7 @@ GameObject:
   - 205: {fileID: 20541750}
   - 64: {fileID: 6478320}
   - 114: {fileID: 11453088}
+  - 195: {fileID: 19580104}
   m_Layer: 0
   m_Name: Alien (Large)
   m_TagString: Enemy
@@ -1503,6 +1504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 1000
+  anim: {fileID: 0}
   alive: 0
   HQ: {fileID: 180918, guid: 10d30fc141e39354792cd37039a62c39, type: 2}
 --- !u!137 &13768318
@@ -1744,6 +1746,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.3428476, y: 0.5651574, z: -0.1147089}
     m_Extent: {x: 3.160638, y: 3.3479462, z: 2.6887746}
   m_DirtyAABB: 0
+--- !u!195 &19580104
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120326}
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!205 &20541750
 LODGroup:
   m_ObjectHideFlags: 1
