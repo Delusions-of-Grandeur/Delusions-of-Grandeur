@@ -36789,6 +36789,7 @@ MonoBehaviour:
   lockCursor: 0
   activeCrosshair: {fileID: 0}
   crosshairOffsetWiggle: 0.2
+  refPivot: {fileID: 0}
 --- !u!4 &1335108991
 Transform:
   m_ObjectHideFlags: 0
@@ -41448,16 +41449,11 @@ MonoBehaviour:
   aim: 0
   aimingWeight: 0
   lookInCameraDirection: 1
+  crosshairImage: {fileID: 0}
   normalZ: -1.2
   aimZ: 0
+  aimY: 0
   aimX: 0.1
-  ik:
-    spine: {fileID: 0}
-    aimingZ: 213.46
-    aimingX: -65.93
-    aimingY: 20.1
-    point: 30
-    DebugAim: 0
 --- !u!136 &1743907838
 CapsuleCollider:
   m_ObjectHideFlags: 0
