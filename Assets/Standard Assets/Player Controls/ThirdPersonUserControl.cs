@@ -189,7 +189,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void FlipRenderer(bool aim) {
 			Renderer[] rs = GetComponentsInChildren<Renderer> ();
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < rs.Length; i++) {
 				rs [i].enabled = !aim;
 			}
 		}
