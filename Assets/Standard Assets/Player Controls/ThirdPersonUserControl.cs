@@ -29,8 +29,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		Animator anim;
 
+		public Texture2D crosshairImage;
+
 		public float normalZ;
 		public float aimZ;
+		public float aimY;
 		public float aimX;
 
 		//Ik stuff
@@ -172,6 +175,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// pass all parameters to the character control script
 			m_Character.Move (m_Move, crouch, m_Jump, aim, lookPos);
 			m_Jump = false;
+		}
+
+		void OnGUI()
+		{
+			Cursor.visible = false;
+			// draw on current mouse position
+			float xMin = Screen.width - (Screen.width - Input.mousePosition.x) - (crosshairImage.width / 2);
+			float yMin = (Screen.height - Input.mousePosition.y) - (crosshairImage.height / 2);
+			GUI.DrawTexture(new Rect(xMin, yMin, crosshairImage.width, crosshairImage.height), crosshairImage);
 		}
 	}
 }
