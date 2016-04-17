@@ -73,8 +73,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
 			normalZ = -1.6f;
-			aimZ = 0.0f;
-			aimX = 0.1f;
+//			aimZ = 0.0f;
+//			aimX = 0.1f;
 		}
 
 
@@ -87,6 +87,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			//then the aim bool is controlled by the right mouse click
 			if (Input.GetMouseButtonUp (1)) {
 				aim = !aim;
+				FlipRenderer (aim);
 			}
 		}
 
@@ -99,7 +100,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			//the normal and aiming state of the camera, basically how much close to the player it is
 			Vector3 normalState = new Vector3 (0, 0, normalZ);
-			Vector3 aimingState = new Vector3(0, 0, normalZ);
+			Vector3 aimingState = new Vector3(aimX, aimY, aimZ);
 
 			//and that is lerped depending on t = aimigweight
 			Vector3 pos = Vector3.Lerp (normalState, aimingState, aimingWeight);
@@ -132,7 +133,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			bool crouch = Input.GetKey (KeyCode.C);
 
 
-			if (!aim) {
+			if (!aim || aim) {
 				// calculate move direction to pass to character
 				if (m_Cam != null) {
 					// calculate camera relative direction to move:
@@ -184,6 +185,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			float xMin = Screen.width - (Screen.width - Input.mousePosition.x) - (crosshairImage.width / 2);
 			float yMin = (Screen.height - Input.mousePosition.y) - (crosshairImage.height / 2);
 			GUI.DrawTexture(new Rect(xMin, yMin, crosshairImage.width, crosshairImage.height), crosshairImage);
+		}
+
+		void FlipRenderer(bool aim) {
+			Renderer[] rs = GetComponentsInChildren<Renderer> ();
+			for (int i = 0; i < 10; i++) {
+				rs [i].enabled = !aim;
+			}
 		}
 	}
 }

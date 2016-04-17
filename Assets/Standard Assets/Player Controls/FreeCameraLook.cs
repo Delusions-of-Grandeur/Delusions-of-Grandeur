@@ -25,6 +25,8 @@ public class FreeCameraLook : Pivot {
 	public Crosshair activeCrosshair;
 	public float crosshairOffsetWiggle = 0.2f;
 
+	public GameObject refPivot;
+
 
 	protected override void Awake()
 	{
@@ -45,7 +47,8 @@ public class FreeCameraLook : Pivot {
 
 	void Start()
 	{
-		ChangeCrosshair();
+		//ChangeCrosshair();
+		pivot.position = refPivot.gameObject.transform.position;
 	}
 
 	public void ChangeCrosshair()
