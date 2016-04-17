@@ -22,21 +22,17 @@ public class FreeCameraLook : Pivot {
 	private float smoothYvelocity = 0;
 
 
-	public Crosshair activeCrosshair;
-	public float crosshairOffsetWiggle = 0.2f;
-
-	public GameObject refPivot;
 
 
 	protected override void Awake()
 	{
 		base.Awake();
 
-		Screen.lockCursor = lockCursor;
+		Cursor.lockState = CursorLockMode.Confined;
 
 		if(lockCursor)
 		{
-			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.lockState = CursorLockMode.Confined;
 			Cursor.visible = false;
 		}
 
@@ -45,20 +41,9 @@ public class FreeCameraLook : Pivot {
 		pivot = cam.parent;
 	}
 
-	void Start()
-	{
-		//ChangeCrosshair();
-		pivot.position = refPivot.gameObject.transform.position;
-	}
 
-	public void ChangeCrosshair()
-	{
-		//activeCrosshair = GameObject.FindGameObjectWithTag("CrosshairManager").GetComponent<CrosshairManager>().activeCrosshair;
-	}
-
-	
 	// Update is called once per frame
-	protected override void Update () 
+	protected override void Update ()
 	{
 		base.Update();
 
@@ -66,7 +51,7 @@ public class FreeCameraLook : Pivot {
 
 		if(lockCursor && Input.GetMouseButtonUp(0))
 		{
-			Screen.lockCursor = lockCursor;
+			Cursor.lockState = CursorLockMode.Confined;
 		}
 	}
 
@@ -126,24 +111,7 @@ public class FreeCameraLook : Pivot {
 		tiltAngle = Mathf.Clamp(tiltAngle, - tiltMin, tiltMax);
 
 		pivot.localRotation = Quaternion.Euler(tiltAngle,0,0);
-
-		if(x > crosshairOffsetWiggle || x < -crosshairOffsetWiggle || y > crosshairOffsetWiggle || y <-crosshairOffsetWiggle)
-		{
-			//activeCrosshair.WiggleCrosshair();
-		}
 	}
-
-	public void WiggleCrosshairAndCamera(WeaponControl weapon, bool shoot)
-	{
-		activeCrosshair.WiggleCrosshair();
-
-		if(shoot)
-		{
-			offsetY = weapon.Kickback;
-		}
-	}
-
-
 
 
 
