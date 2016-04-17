@@ -50,6 +50,7 @@ public class UFO : MonoBehaviour {
             return true;
         }
 
+        life();
         return health < 0.1;//return if this will die
     }
 
