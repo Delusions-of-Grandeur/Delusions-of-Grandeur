@@ -87,7 +87,7 @@ namespace SpawningFramework
 
         public void Stop()
         {
-			anim.SetBool ("Dead", true);
+			
             nav.Stop();
         }
 
@@ -105,7 +105,9 @@ namespace SpawningFramework
         {
             alive = false;
             SpawnController.numAlive--;
-            Invoke("Delete", 7);
+			anim.SetBool ("Dead", true);
+			nav.Stop ();
+            Invoke("Delete", 3.5f);
             //set animation to dead
         }
 
