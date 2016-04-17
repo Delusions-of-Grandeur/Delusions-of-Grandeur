@@ -41434,7 +41434,7 @@ MonoBehaviour:
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 0.2
+  m_GroundCheckDistance: 0.8
 --- !u!114 &1743907837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44662,6 +44662,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: -337.18}
   m_TimeToStationary: 0.5
+--- !u!114 &2032837442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032837439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b24e916711e1284487b794781d0da2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ufo: {fileID: 2032837439}
+  MaxHealth: 100
+  health: 0
 --- !u!1001 &2035331194
 Prefab:
   m_ObjectHideFlags: 0
