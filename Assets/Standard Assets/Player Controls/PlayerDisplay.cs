@@ -14,6 +14,7 @@ public class PlayerDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Screen.lockCursor = true;
 		moneyText.text = "Money: " + money.ToString();
 	}
 }
