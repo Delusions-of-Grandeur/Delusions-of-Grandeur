@@ -12,12 +12,17 @@ namespace SpawningFramework
 
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.tag);
-            if (other.tag == ("Bullet"))
-            {
-                Hurt(503);
-                //              Destroy(other.gameObject);        
-            }
+			if (other.tag == ("Bullet"))
+			{
+				Hurt(20);
+				//              Destroy(other.gameObject);        
+			} else if (other.tag == ("BulletGatling"))
+			{
+				Hurt(3f);  
+			} else if (other.tag == ("BulletSniper"))
+			{
+				Hurt(8f);
+			}
         }
 
         public override void die()

@@ -34,19 +34,16 @@ public class AlienHQ : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collide");
-        if (other.tag == ("Player"))
-        {
-        //    Debug.Log(health);
-            Hurt(200);
-        //    Debug.Log(health);
-        }
-        else if(other.tag == ("Bullet")) 
-        {
-            Hurt(40);
-        //    Debug.Log(health + " ouch");
-
-        }
+		if (other.tag == ("Bullet"))
+		{
+			Hurt(20);      
+		} else if (other.tag == ("BulletGatling"))
+		{
+			Hurt(3f);  
+		} else if (other.tag == ("BulletSniper"))
+		{
+			Hurt(8f);
+		}
     }
 
     bool Hurt(float damage)
