@@ -24766,7 +24766,7 @@ Transform:
   - {fileID: 444325017}
   - {fileID: 550349087}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!4 &391882707 stripped
 Transform:
   m_PrefabParentObject: {fileID: 494666, guid: de4a430417ab045b2a83709b84af9ebf, type: 2}
@@ -36784,10 +36784,10 @@ MonoBehaviour:
   - {fileID: 185246, guid: 96d4c8f098fe543939e5f0f5c9143b9b, type: 2}
   - {fileID: 122248, guid: 8461b2032f5334d748d57525b5a79bd6, type: 2}
   - {fileID: 172764, guid: 1c79a1d9744f640f0933446e091dc5f0, type: 2}
-  buildLvl1Gattling: 100
-  buildLvl2Gattling: 125
-  buildLvl1Sniper: 125
-  buildLvl2Sniper: 150
+  buildLvl1Gattling: 300
+  buildLvl2Gattling: 375
+  buildLvl1Sniper: 375
+  buildLvl2Sniper: 450
 --- !u!114 &1335108990
 MonoBehaviour:
   m_ObjectHideFlags: 0
