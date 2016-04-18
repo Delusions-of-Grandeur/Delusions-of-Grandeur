@@ -53,7 +53,7 @@ function Update ()
 		structureIndex = 2;
 	}
 
-	if(Input.GetKeyDown(KeyCode.B)){ // build
+	if(Input.GetKeyDown(KeyCode.Alpha8)){ // build
 		functionIndex = 0;
 		hoverMat = allMats[0];
 
@@ -68,7 +68,7 @@ function Update ()
 	  		}
    		}
 		beforeLastHitObjUpgrade = null;
-	} else if(Input.GetKeyDown(KeyCode.N)){ // Sell
+	} else if(Input.GetKeyDown(KeyCode.Alpha9)){ // Sell
 		functionIndex = 1;
 		hoverMat = allMats[1];
 		if(beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){
@@ -87,7 +87,7 @@ function Update ()
 	  		}
    		}
 		beforeLastHitObjUpgrade = null;
-	} else if(Input.GetKeyDown(KeyCode.U)){ // Upgrade
+	} else if(Input.GetKeyDown(KeyCode.Alpha0)){ // Upgrade
 		functionIndex = 2;
 		hoverMat = allMats[2];
 		if(beforeLastHitObj != null && beforeLastHitObj.transform.childCount > 0){
